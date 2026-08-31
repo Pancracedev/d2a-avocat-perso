@@ -1,0 +1,38 @@
+---
+import { getAlternatePath, type Lang } from '../i18n/utils'
+
+type Props = {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const frHref = getAlternatePath(Astro.url.pathname, 'fr')
+const enHref = getAlternatePath(Astro.url.pathname, 'en')
+---
+
+<div class="text-navy-600 flex items-center gap-1 text-[12px] font-medium tracking-wide">
+  <span class="sr-only">{lang === 'fr' ? 'Langue' : 'Language'}</span>
+  <a
+    href={frHref}
+    hreflang="fr"
+    aria-current={lang === 'fr' ? 'page' : undefined}
+    class:list={[
+      'px-1.5 py-1 transition-colors duration-200',
+      lang === 'fr' ? 'text-navy-800' : 'text-navy-400 hover:text-navy-700',
+    ]}
+  >
+    FR
+  </a>
+  <span class="text-gold-400" aria-hidden="true">/</span>
+  <a
+    href={enHref}
+    hreflang="en"
+    aria-current={lang === 'en' ? 'page' : undefined}
+    class:list={[
+      'px-1.5 py-1 transition-colors duration-200',
+      lang === 'en' ? 'text-navy-800' : 'text-navy-400 hover:text-navy-700',
+    ]}
+  >
+    EN
+  </a>
+</div>

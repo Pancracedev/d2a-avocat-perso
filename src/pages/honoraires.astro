@@ -1,0 +1,13 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<PageLayout
+  title={t('fees.title')}
+  description={t('fees.description')}
+  intro={t('fees.intro')}
+/>

@@ -1,0 +1,26 @@
+---
+import Reveal from '../components/Reveal'
+import BaseLayout from './BaseLayout.astro'
+
+type Props = {
+  title: string
+  description: string
+  intro: string
+}
+
+const { title, description, intro } = Astro.props
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-24">
+    <Reveal client:visible>
+      <h1 class="text-navy-700 max-w-3xl text-4xl sm:text-[40px]">{title}</h1>
+    </Reveal>
+    <Reveal client:visible delay={0.1}>
+      <p class="text-navy-600 mt-6 max-w-2xl text-[16px]">{intro}</p>
+    </Reveal>
+    <div class="mt-12">
+      <slot />
+    </div>
+  </section>
+</BaseLayout>

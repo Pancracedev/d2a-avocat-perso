@@ -1,0 +1,12 @@
+---
+import HeroSection from '@/components/HeroSection.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<BaseLayout title={t('hero.title')} description={t('hero.subtitle')}>
+  <HeroSection />
+</BaseLayout>

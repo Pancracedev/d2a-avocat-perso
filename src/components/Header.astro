@@ -1,0 +1,94 @@
+---
+import Button from './Button.astro'
+import LanguageSwitcher from './LanguageSwitcher.astro'
+import { getLangFromUrl, localizePath, routes, useTranslations } from '../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const path = Astro.url.pathname.replace(/\/$/, '') || '/'
+const pathWithoutLocale = path.replace(/^\/en(?=\/|$)/, '') || '/'
+
+const items = [
+  { href: routes.home, label: t('nav.home'), key: 'home' },
+  { href: routes.firm, label: t('nav.firm'), key: 'firm' },
+  { href: routes.expertise, label: t('nav.expertise'), key: 'expertise' },
+  { href: routes.fees, label: t('nav.fees'), key: 'fees' },
+  { href: routes.news, label: t('nav.news'), key: 'news' },
+  { href: routes.contact, label: t('nav.contact'), key: 'contact' },
+] as const
+
+function isActive(href: string) {
+  if (href === '/') return pathWithoutLocale === '/'
+  return pathWithoutLocale === href || pathWithoutLocale.startsWith(`${href}/`)
+}
+---
+
+<header
+  class="border-navy-100/80 bg-navy-50/90 sticky top-0 z-50 border-b backdrop-blur-md"
+>
+  <div
+    class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 lg:px-8"
+  >
+    <a
+      href={localizePath(lang, routes.home)}
+      class="text-navy-700 font-serif text-[20px] font-medium tracking-tight"
+    >
+      D2A Avocat
+    </a>
+
+    <nav class="hidden items-center gap-6 lg:flex" aria-label="Principal">
+      {
+        items.map((item) => (
+          <a
+            href={localizePath(lang, item.href)}
+            class:list={[
+              'relative text-[13px] font-medium tracking-wide transition-colors duration-200',
+              isActive(item.href)
+                ? 'text-navy-800 after:bg-gold-400 after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full'
+                : 'text-navy-600 hover:text-navy-800',
+            ]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="hidden items-center gap-4 lg:flex">
+      <LanguageSwitcher lang={lang} />
+      <Button href={routes.contact} lang={lang}>{t('nav.book')}</Button>
+    </div>
+
+    <details class="relative lg:hidden">
+      <summary
+        class="border-navy-200 text-navy-700 cursor-pointer list-none rounded-sm border px-3 py-2 text-[12px] font-medium [&::-webkit-details-marker]:hidden"
+      >
+        Menu
+      </summary>
+      <div
+        class="border-navy-100 absolute right-0 mt-3 w-64 rounded-sm border bg-white p-4 shadow-lg"
+      >
+        <nav class="flex flex-col gap-3" aria-label="Mobile">
+          {
+            items.map((item) => (
+              <a
+                href={localizePath(lang, item.href)}
+                class="text-navy-700 text-[14px] font-medium"
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+        <div
+          class="border-navy-100 mt-4 flex items-center justify-between gap-3 border-t pt-4"
+        >
+          <LanguageSwitcher lang={lang} />
+          <Button href={routes.contact} lang={lang} className="px-3 py-2">
+            {t('nav.book')}
+          </Button>
+        </div>
+      </div>
+    </details>
+  </div>
+</header>

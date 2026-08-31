@@ -1,0 +1,41 @@
+---
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import '../styles/global.css'
+
+type Props = {
+  title?: string
+  description?: string
+}
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const { title, description } = Astro.props
+const pageTitle = title ? `${title} · ${t('meta.siteName')}` : t('meta.siteName')
+const pageDescription = description ?? t('meta.defaultDescription')
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={pageDescription} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>{pageTitle}</title>
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

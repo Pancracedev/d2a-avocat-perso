@@ -1,0 +1,39 @@
+---
+import Button from './Button.astro'
+import Reveal from './Reveal'
+import { getLangFromUrl, routes, useTranslations } from '../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<section class="relative overflow-hidden">
+  <div
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--color-gold-100)_0%,_transparent_42%)] opacity-70"
+    aria-hidden="true"
+  >
+  </div>
+  <div class="relative mx-auto max-w-6xl px-5 py-24 lg:px-8 lg:py-32">
+    <Reveal client:load>
+      <p class="text-gold-500 text-[13px] font-medium tracking-[0.14em]">D2A Avocat</p>
+    </Reveal>
+    <Reveal client:load delay={0.08}>
+      <h1 class="text-navy-700 mt-6 max-w-3xl text-5xl sm:text-6xl">
+        {t('hero.title')}
+      </h1>
+    </Reveal>
+    <Reveal client:load delay={0.16}>
+      <p class="text-navy-600 mt-6 max-w-xl text-[16px]">
+        {t('hero.subtitle')}
+      </p>
+    </Reveal>
+    <Reveal client:load delay={0.24}>
+      <div class="mt-10 flex flex-wrap gap-3">
+        <Button href={routes.contact} lang={lang}>{t('hero.ctaPrimary')}</Button>
+        <Button href={routes.expertise} lang={lang} variant="secondary">
+          {t('hero.ctaSecondary')}
+        </Button>
+      </div>
+    </Reveal>
+  </div>
+</section>
