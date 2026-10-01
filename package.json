@@ -9,13 +9,16 @@
     "preview": "astro preview",
     "astro": "astro",
     "prepare": "husky",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "check": "astro check",
+    "typecheck": "astro check"
   },
   "lint-staged": {
     "*.{js,ts,tsx,astro,css,md,json}": "prettier --write"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.3",
+    "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.2.3",
     "framer-motion": "^13.1.0",
@@ -24,6 +27,7 @@
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
     "@commitlint/cli": "^21.2.2",
     "@commitlint/config-conventional": "^21.2.2",
     "@types/react": "^19.2.18",
@@ -33,6 +37,9 @@
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.1",
-    "typescript": "^7.0.2"
+    "typescript": "^6.0.3"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
   }
 }
