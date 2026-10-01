@@ -1,13 +1,183 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro'
-import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import Reveal from '@/components/Reveal'
+import CtaBanner from '@/components/CtaBanner.astro'
+import Icon from '@/components/Icon.astro'
+import { site } from '@/config/site'
+import { getLangFromUrl, routes, useTranslations } from '@/i18n/utils'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
+
+const crumbs = [
+  { href: routes.home, label: t('nav.home') },
+  { href: routes.contact, label: t('nav.contact') },
+]
+
+const domains = [
+  { value: 'business', label: t('contact.form.domain.business') },
+  { value: 'immigration', label: t('contact.form.domain.immigration') },
+  { value: 'family', label: t('contact.form.domain.family') },
+  { value: 'other', label: t('contact.form.domain.other') },
+]
+
+const endpoint = site.formEndpoint
+const mailto = `mailto:${site.email}?subject=${encodeURIComponent('Demande de contact – D2A Avocat')}`
+const formAction = endpoint ?? mailto
 ---
 
 <PageLayout
   title={t('contact.title')}
   description={t('contact.description')}
   intro={t('contact.intro')}
-/>
+  eyebrow={t('contact.eyebrow')}
+  crumbs={crumbs}
+>
+  <div class="grid gap-10 lg:grid-cols-2">
+    <Reveal client:visible>
+      <section class="card p-8">
+        <h2 class="text-navy-700 text-2xl">{t('contact.form.title')}</h2>
+        <p class="text-navy-600 mt-3 text-[14px] leading-relaxed">
+          {t('contact.form.intro')}
+        </p>
+        <form
+          method="post"
+          action={formAction}
+          enctype={endpoint ? undefined : 'text/plain'}
+          class="mt-6 space-y-5"
+        >
+          <div>
+            <label for="name" class="text-navy-700 block text-[13px] font-medium">
+              {t('contact.form.name')}
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              class="border-navy-200 focus:border-gold-400 mt-1 w-full rounded-sm border bg-white px-3 py-2 text-[14px] transition-colors focus:outline-none"
+            />
+          </div>
+          <div>
+            <label for="email" class="text-navy-700 block text-[13px] font-medium">
+              {t('contact.form.email')}
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              class="border-navy-200 focus:border-gold-400 mt-1 w-full rounded-sm border bg-white px-3 py-2 text-[14px] transition-colors focus:outline-none"
+            />
+          </div>
+          <div>
+            <label for="phone" class="text-navy-700 block text-[13px] font-medium">
+              {t('contact.form.phone')}
+            </label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              class="border-navy-200 focus:border-gold-400 mt-1 w-full rounded-sm border bg-white px-3 py-2 text-[14px] transition-colors focus:outline-none"
+            />
+          </div>
+          <div>
+            <label for="domain" class="text-navy-700 block text-[13px] font-medium">
+              {t('contact.form.domain')}
+            </label>
+            <select
+              id="domain"
+              name="domain"
+              class="border-navy-200 focus:border-gold-400 mt-1 w-full rounded-sm border bg-white px-3 py-2 text-[14px] transition-colors focus:outline-none"
+            >
+              {domains.map((d) => <option value={d.value}>{d.label}</option>)}
+            </select>
+          </div>
+          <div>
+            <label for="message" class="text-navy-700 block text-[13px] font-medium">
+              {t('contact.form.message')}
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="6"
+              class="border-navy-200 focus:border-gold-400 mt-1 w-full rounded-sm border bg-white px-3 py-2 text-[14px] transition-colors focus:outline-none"
+            ></textarea>
+          </div>
+          <p class="text-navy-500 text-[12px] leading-relaxed">
+            {t('contact.form.legalNote')}
+          </p>
+          <button
+            type="submit"
+            class="bg-navy-600 hover:bg-navy-700 focus-visible:outline-gold-400 inline-flex items-center justify-center rounded-sm px-5 py-3 text-[13px] font-medium tracking-wide text-white transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+          >
+            {t('contact.form.submit')}
+          </button>
+        </form>
+      </section>
+    </Reveal>
+
+    <aside class="space-y-6">
+      <Reveal client:visible delay={0.05}>
+        <section class="card p-6">
+          <h2 class="text-navy-700 text-xl">{t('contact.coords.title')}</h2>
+          <ul class="text-navy-600 mt-4 space-y-3 text-[14px]">
+            <li class="flex items-start gap-3">
+              <Icon name="pin" size={18} class="text-gold-500 mt-0.5" />
+              <span>{t('contact.coords.address')}</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon name="mail" size={18} class="text-gold-500 mt-0.5" />
+              <a href={`mailto:${site.email}`} class="hover:text-navy-800">
+                {site.email}
+              </a>
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon name="phone" size={18} class="text-gold-500 mt-0.5" />
+              <span>{t('contact.coords.phone')}</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon name="clock" size={18} class="text-gold-500 mt-0.5" />
+              <span>{t('contact.coords.hours')}</span>
+            </li>
+          </ul>
+        </section>
+      </Reveal>
+
+      <Reveal client:visible delay={0.1}>
+        <section class="card p-6">
+          <h2 class="text-navy-700 text-xl">{t('contact.direct.title')}</h2>
+          <p class="text-navy-600 mt-2 text-[14px] leading-relaxed">
+            {t('contact.direct.text')}
+          </p>
+          <a
+            href={`mailto:${site.email}`}
+            class="text-navy-800 decoration-gold-400 hover:text-navy-950 mt-4 inline-flex items-center gap-2 text-[13px] font-medium underline decoration-1 underline-offset-4"
+          >
+            {site.email}
+            <Icon name="arrow-right" size={16} class="text-gold-500" />
+          </a>
+        </section>
+      </Reveal>
+
+      <Reveal client:visible delay={0.15}>
+        <section class="card p-6">
+          <h2 class="text-navy-700 text-xl">{t('contact.benin.title')}</h2>
+          <p class="text-navy-600 mt-2 text-[14px] leading-relaxed">
+            {t('contact.benin.text')}
+          </p>
+          <a
+            href={site.partner.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-navy-800 decoration-gold-400 hover:text-navy-950 mt-4 inline-flex items-center gap-2 text-[13px] font-medium underline decoration-1 underline-offset-4"
+          >
+            {t('contact.benin.link')}
+            <Icon name="arrow-right" size={16} class="text-gold-500" />
+          </a>
+        </section>
+      </Reveal>
+    </aside>
+  </div>
+</PageLayout>
