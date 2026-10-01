@@ -95,7 +95,11 @@
   }
 
   .card:hover {
-    @apply shadow-navy-900/10 -translate-y-px shadow-lg;
+    @apply border-navy-200;
+  }
+
+  .card-hover:hover {
+    @apply shadow-navy-900/10 border-navy-200 -translate-y-px shadow-lg;
   }
 
   .link-underline {

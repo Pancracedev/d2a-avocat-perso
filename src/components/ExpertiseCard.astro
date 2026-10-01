@@ -18,7 +18,7 @@ type Props = {
 const { lang, icon, index, title, text, href, ctaLabel } = Astro.props
 ---
 
-<a href={localizePath(lang, href)} class="card group flex flex-col p-8">
+<a href={localizePath(lang, href)} class="card card-hover group flex flex-col p-8">
   <div class="flex items-start justify-between">
     <span class="text-navy-100 font-serif text-5xl font-light" aria-hidden="true">
       {index}
