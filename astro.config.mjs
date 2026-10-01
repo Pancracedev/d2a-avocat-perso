@@ -1,4 +1,5 @@
 import react from '@astrojs/react'
+import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
 import { fileURLToPath } from 'node:url'
@@ -12,7 +13,18 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
-  integrations: [react()],
+  integrations: [
+    react(),
+    sitemap({
+      i18n: {
+        defaultLocale: 'fr',
+        locales: {
+          fr: 'fr-FR',
+          en: 'en-US',
+        },
+      },
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
     resolve: {

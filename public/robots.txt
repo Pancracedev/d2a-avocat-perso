@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://d2a-avocat.fr/sitemap-index.xml

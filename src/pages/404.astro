@@ -1,0 +1,24 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Button from '@/components/Button.astro'
+import { getLangFromUrl, routes, useTranslations } from '@/i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<BaseLayout title={t('notFound.title')} description={t('notFound.description')}>
+  <section
+    class="mx-auto flex max-w-6xl flex-col items-center px-5 py-28 text-center lg:px-8"
+  >
+    <p class="text-gold-500 font-serif text-7xl font-light" aria-hidden="true">404</p>
+    <h1 class="text-navy-700 mt-4 text-3xl sm:text-4xl">{t('notFound.title')}</h1>
+    <p class="text-navy-600 mt-4 max-w-md text-[16px]">{t('notFound.description')}</p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <Button href={routes.home} lang={lang}>{t('notFound.ctaHome')}</Button>
+      <Button href={routes.expertise} lang={lang} variant="secondary">
+        {t('notFound.ctaExpertise')}
+      </Button>
+    </div>
+  </section>
+</BaseLayout>

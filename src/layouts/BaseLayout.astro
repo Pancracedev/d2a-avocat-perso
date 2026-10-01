@@ -1,19 +1,43 @@
 ---
 import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
-import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import { languages } from '../i18n/ui'
+import { getAlternatePath, getLangFromUrl, useTranslations } from '../i18n/utils'
 import '../styles/global.css'
 
 type Props = {
   title?: string
   description?: string
+  type?: 'website' | 'article'
 }
 
+const { title, description, type = 'website' } = Astro.props
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
-const { title, description } = Astro.props
 const pageTitle = title ? `${title} · ${t('meta.siteName')}` : t('meta.siteName')
 const pageDescription = description ?? t('meta.defaultDescription')
+
+const siteUrl = Astro.site ?? 'https://d2a-avocat.fr'
+const canonical = new URL(Astro.url.pathname, siteUrl).href
+const alternates = Object.entries(languages).map(([code]) => {
+  const target = code as keyof typeof languages
+  return {
+    hreflang: target,
+    href: new URL(getAlternatePath(Astro.url.pathname, target), siteUrl).href,
+  }
+})
+const ogLocale = lang === 'fr' ? 'fr_FR' : 'en_US'
+
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LegalService',
+  name: 'D2A Avocat',
+  url: siteUrl,
+  description: t('meta.defaultDescription'),
+  email: 'diane@d2a-avocat.fr',
+  availableLanguage: ['fr', 'en'],
+  areaServed: ['France', 'Bénin', "Côte d'Ivoire"],
+}
 ---
 
 <!doctype html>
@@ -22,6 +46,21 @@ const pageDescription = description ?? t('meta.defaultDescription')
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0D406E" />
+    <link rel="canonical" href={canonical} />
+    {
+      alternates.map((alt) => (
+        <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+      ))
+    }
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="D2A Avocat" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta name="twitter:card" content="summary" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,6 +68,8 @@ const pageDescription = description ?? t('meta.defaultDescription')
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
+    <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
+    <slot name="head" />
     <title>{pageTitle}</title>
   </head>
   <body class="flex min-h-screen flex-col">

@@ -96,6 +96,11 @@ export const ui = {
     'footer.legal': 'Mentions légales',
     'footer.privacy': 'Politique de confidentialité',
     'footer.rights': 'Tous droits réservés.',
+
+    'notFound.title': 'Page introuvable',
+    'notFound.description': 'La page que vous cherchez n’existe pas ou a été déplacée.',
+    'notFound.ctaHome': 'Retour à l’accueil',
+    'notFound.ctaExpertise': 'Voir nos expertises',
   },
   en: {
     'meta.siteName': 'D2A Avocat',
@@ -183,6 +188,11 @@ export const ui = {
     'footer.legal': 'Legal notice',
     'footer.privacy': 'Privacy policy',
     'footer.rights': 'All rights reserved.',
+
+    'notFound.title': 'Page not found',
+    'notFound.description': 'The page you are looking for does not exist or has moved.',
+    'notFound.ctaHome': 'Back to home',
+    'notFound.ctaExpertise': 'See our practice areas',
   },
 } as const
 
