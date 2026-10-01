@@ -1,13 +1,5 @@
 ---
-import PageLayout from '@/layouts/PageLayout.astro'
-import { getLangFromUrl, useTranslations } from '@/i18n/utils'
-
-const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
+import ContactPage from '../contact.astro'
 ---
 
-<PageLayout
-  title={t('contact.title')}
-  description={t('contact.description')}
-  intro={t('contact.intro')}
-/>
+<ContactPage />

@@ -1,13 +1,5 @@
 ---
-import PageLayout from '@/layouts/PageLayout.astro'
-import { getLangFromUrl, useTranslations } from '@/i18n/utils'
-
-const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
+import CabinetPage from '../cabinet.astro'
 ---
 
-<PageLayout
-  title={t('cabinet.title')}
-  description={t('cabinet.description')}
-  intro={t('cabinet.intro')}
-/>
+<CabinetPage />

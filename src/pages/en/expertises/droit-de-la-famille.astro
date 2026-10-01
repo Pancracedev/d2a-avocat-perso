@@ -1,13 +1,5 @@
 ---
-import PageLayout from '@/layouts/PageLayout.astro'
-import { getLangFromUrl, useTranslations } from '@/i18n/utils'
-
-const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
+import FamilyLawPage from '../../expertises/droit-de-la-famille.astro'
 ---
 
-<PageLayout
-  title={t('expertise.family.title')}
-  description={t('expertise.family.description')}
-  intro={t('expertise.family.intro')}
-/>
+<FamilyLawPage />

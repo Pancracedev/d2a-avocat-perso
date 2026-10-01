@@ -1,13 +1,5 @@
 ---
-import PageLayout from '@/layouts/PageLayout.astro'
-import { getLangFromUrl, useTranslations } from '@/i18n/utils'
-
-const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
+import PrivacyPage from '../politique-confidentialite.astro'
 ---
 
-<PageLayout
-  title={t('privacy.title')}
-  description={t('privacy.description')}
-  intro={t('privacy.intro')}
-/>
+<PrivacyPage />

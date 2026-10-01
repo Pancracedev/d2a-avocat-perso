@@ -1,35 +1,5 @@
 ---
-import Button from '@/components/Button.astro'
-import Reveal from '@/components/Reveal'
-import PageLayout from '@/layouts/PageLayout.astro'
-import { getLangFromUrl, routes, useTranslations } from '@/i18n/utils'
-
-const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
-
-const areas = [
-  { href: routes.business, title: t('expertises.business') },
-  { href: routes.immigration, title: t('expertises.immigration') },
-  { href: routes.family, title: t('expertises.family') },
-]
+import ExpertisesPage from '../../expertises/index.astro'
 ---
 
-<PageLayout
-  title={t('expertises.title')}
-  description={t('expertises.description')}
-  intro={t('expertises.intro')}
->
-  <Reveal client:visible>
-    <ul class="grid gap-4 sm:grid-cols-3">
-      {
-        areas.map((area) => (
-          <li>
-            <Button href={area.href} lang={lang} variant="secondary" className="w-full">
-              {area.title}
-            </Button>
-          </li>
-        ))
-      }
-    </ul>
-  </Reveal>
-</PageLayout>
+<ExpertisesPage />
