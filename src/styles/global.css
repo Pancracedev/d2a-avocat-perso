@@ -91,6 +91,14 @@
   }
 
   .card {
-    @apply border-navy-100 rounded-sm border bg-white;
+    @apply border-navy-100 shadow-navy-900/5 relative rounded-sm border bg-white shadow-sm transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply shadow-navy-900/10 -translate-y-px shadow-lg;
+  }
+
+  .link-underline {
+    @apply after:bg-gold-400 relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:transition-all after:duration-300 hover:after:w-full;
   }
 }

@@ -1,6 +1,7 @@
 ---
 import Reveal from '../Reveal'
 import SectionHeading from '../SectionHeading.astro'
+import Icon from '../Icon.astro'
 import type { UiKey } from '../../i18n/ui'
 import { getLangFromUrl, useTranslations } from '../../i18n/utils'
 
@@ -27,8 +28,18 @@ const points = [0, 1, 2].map((i) => ({
             <div
               class:list={['pt-5', index === 0 && '', 'sm:border-navy-100 sm:border-t']}
             >
-              <dt class="text-gold-600 font-serif text-3xl font-light">{point.title}</dt>
-              <dd class="text-navy-600 mt-2 text-[14px] leading-relaxed">{point.text}</dd>
+              <div class="flex items-center gap-3">
+                <span class="bg-gold-50 text-gold-600 shadow-gold-900/5 flex h-9 w-9 items-center justify-center rounded-sm shadow-sm">
+                  <Icon
+                    name={index === 0 ? 'briefcase' : index === 1 ? 'globe' : 'clock'}
+                    size={18}
+                  />
+                </span>
+                <dt class="text-gold-600 font-serif text-3xl font-light">
+                  {point.title}
+                </dt>
+              </div>
+              <dd class="text-navy-600 mt-3 text-[14px] leading-relaxed">{point.text}</dd>
             </div>
           ))
         }
