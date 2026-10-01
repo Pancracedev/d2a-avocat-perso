@@ -1,0 +1,55 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import Reveal from '@/components/Reveal'
+import CtaBanner from '@/components/CtaBanner.astro'
+import { getCollection, render } from 'astro:content'
+import { getLangFromUrl, routes, useTranslations } from '@/i18n/utils'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('news')
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: { post },
+  }))
+}
+
+const { post } = Astro.props
+const { title, description, date, category } = post.data
+const { Content } = await render(post)
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const formattedDate = new Intl.DateTimeFormat('en-GB', {
+  dateStyle: 'long',
+}).format(date)
+
+const crumbs = [
+  { href: routes.home, label: t('nav.home') },
+  { href: routes.news, label: t('nav.news') },
+  { href: `/actualites/${post.data.slug}`, label: title },
+]
+---
+
+<PageLayout title={title} description={description} eyebrow={category} crumbs={crumbs}>
+  <Reveal client:visible>
+    <article class="max-w-3xl">
+      <time class="text-navy-400 text-[13px]" datetime={date.toISOString()}
+        >{formattedDate}</time
+      >
+      <div class="text-navy-700 mt-8 space-y-6 text-[16px] leading-relaxed">
+        <Content />
+      </div>
+    </article>
+  </Reveal>
+  <Reveal client:visible delay={0.1}>
+    <div class="mt-16">
+      <CtaBanner
+        lang={lang}
+        title={t('news.cta.title')}
+        text={t('news.cta.text')}
+        primaryHref={routes.contact}
+        primaryLabel={t('news.cta.primary')}
+      />
+    </div>
+  </Reveal>
+</PageLayout>
