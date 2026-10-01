@@ -1,0 +1,38 @@
+---
+import Reveal from '../Reveal'
+import SectionHeading from '../SectionHeading.astro'
+import type { UiKey } from '../../i18n/ui'
+import { getLangFromUrl, useTranslations } from '../../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const points = [0, 1, 2].map((i) => ({
+  title: t(`home.highlight.${i}.title` as UiKey),
+  text: t(`home.highlight.${i}.text` as UiKey),
+}))
+---
+
+<section class="bg-white">
+  <div class="wrap py-14 lg:py-16">
+    <SectionHeading
+      eyebrow={t('home.highlights.eyebrow')}
+      title={t('home.highlights.title')}
+      text={t('home.highlights.text')}
+    />
+    <Reveal client:visible>
+      <dl class="mt-10 grid gap-x-8 gap-y-6 sm:grid-cols-3">
+        {
+          points.map((point, index) => (
+            <div
+              class:list={['pt-5', index === 0 && '', 'sm:border-navy-100 sm:border-t']}
+            >
+              <dt class="text-gold-600 font-serif text-3xl font-light">{point.title}</dt>
+              <dd class="text-navy-600 mt-2 text-[14px] leading-relaxed">{point.text}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </Reveal>
+  </div>
+</section>

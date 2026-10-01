@@ -1,0 +1,60 @@
+---
+import ExpertiseCard from '../ExpertiseCard.astro'
+import Reveal from '../Reveal'
+import SectionHeading from '../SectionHeading.astro'
+import { getLangFromUrl, routes, useTranslations } from '../../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const areas = [
+  {
+    icon: 'briefcase',
+    index: '01',
+    title: t('expertises.business'),
+    text: t('expert.business.description'),
+    href: routes.business,
+  },
+  {
+    icon: 'globe',
+    index: '02',
+    title: t('expertises.immigration'),
+    text: t('expert.immigration.description'),
+    href: routes.immigration,
+  },
+  {
+    icon: 'home',
+    index: '03',
+    title: t('expertises.family'),
+    text: t('expert.family.description'),
+    href: routes.family,
+  },
+] as const
+---
+
+<section class="bg-navy-50/50">
+  <div class="wrap py-20 lg:py-24">
+    <SectionHeading
+      eyebrow={t('home.expertises.eyebrow')}
+      title={t('home.expertises.title')}
+      text={t('home.expertises.text')}
+    />
+    <Reveal client:visible>
+      <div class="mt-10 grid gap-5 md:grid-cols-3">
+        {
+          areas.map((area) => (
+            <ExpertiseCard
+              lang={lang}
+              icon={area.icon}
+              index={area.index}
+              title={area.title}
+              text={area.text}
+              href={area.href}
+              ctaLabel={t('expertises.card.cta')}
+            />
+          ))
+        }
+      </div>
+    </Reveal>
+  </div>
+</section>

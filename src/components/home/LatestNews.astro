@@ -1,0 +1,52 @@
+---
+import ArticleCard from '../ArticleCard.astro'
+import Reveal from '../Reveal'
+import SectionHeading from '../SectionHeading.astro'
+import Icon from '../Icon.astro'
+import type { CollectionEntry } from 'astro:content'
+import type { Lang, UiKey } from '../../i18n/ui'
+import { getLangFromUrl, localizePath, routes, useTranslations } from '../../i18n/utils'
+
+type Props = {
+  posts: CollectionEntry<'news'>[]
+}
+
+const { posts = [] } = Astro.props
+const lang = getLangFromUrl(Astro.url) as Lang
+const t = useTranslations(lang)
+const filtered = posts.slice(0, 3)
+---
+
+<section class="bg-white">
+  <div class="wrap py-20 lg:py-24">
+    <div class="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
+      <SectionHeading
+        eyebrow={t('home.news.eyebrow')}
+        title={t('home.news.title')}
+        text={t('home.news.text')}
+      />
+      <a
+        href={localizePath(lang, routes.news)}
+        class="text-navy-800 inline-flex shrink-0 items-center gap-2 self-start text-[13px] font-medium sm:self-auto"
+      >
+        {t('home.news.all')}
+        <Icon name="arrow-right" size={16} class="text-gold-500" />
+      </a>
+    </div>
+    <Reveal client:visible>
+      {
+        filtered.length === 0 ? (
+          <div class="card mt-10 p-8 text-center">
+            <p class="text-navy-600">{t('news.empty')}</p>
+          </div>
+        ) : (
+          <div class="mt-10 grid gap-5 md:grid-cols-3">
+            {filtered.map((post) => (
+              <ArticleCard entry={post} lang={lang} label={t('news.read')} />
+            ))}
+          </div>
+        )
+      }
+    </Reveal>
+  </div>
+</section>

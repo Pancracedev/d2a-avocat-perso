@@ -1,23 +1,45 @@
 ---
+import Breadcrumbs from '../components/Breadcrumbs.astro'
 import Reveal from '../components/Reveal'
+import type { Lang } from '../i18n/ui'
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
 import BaseLayout from './BaseLayout.astro'
+
+type Crumb = {
+  href: string
+  label: string
+}
 
 type Props = {
   title: string
   description: string
-  intro: string
+  intro?: string
+  eyebrow?: string
+  crumbs?: Crumb[]
 }
 
-const { title, description, intro } = Astro.props
+const { title, description, intro, eyebrow, crumbs } = Astro.props
+const lang = getLangFromUrl(Astro.url) as Lang
+const t = useTranslations(lang)
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-24">
+  <section class="wrap py-16 lg:py-20">
+    {crumbs && <Breadcrumbs lang={lang} items={crumbs} label={t('nav.home')} />}
     <Reveal client:visible>
-      <h1 class="text-navy-700 max-w-3xl text-4xl sm:text-[40px]">{title}</h1>
-    </Reveal>
-    <Reveal client:visible delay={0.1}>
-      <p class="text-navy-600 mt-6 max-w-2xl text-[16px]">{intro}</p>
+      <div class="mt-6">
+        {
+          eyebrow && (
+            <p class="text-gold-500 text-[12px] font-medium tracking-[0.16em]">
+              {eyebrow}
+            </p>
+          )
+        }
+        <h1 class="text-navy-700 mt-3 max-w-3xl text-4xl sm:text-[40px]">
+          {title}
+        </h1>
+        {intro && <p class="text-navy-600 mt-6 max-w-2xl text-[16px]">{intro}</p>}
+      </div>
     </Reveal>
     <div class="mt-12">
       <slot />

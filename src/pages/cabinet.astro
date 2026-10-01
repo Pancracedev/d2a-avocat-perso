@@ -1,13 +1,143 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro'
-import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import Reveal from '@/components/Reveal'
+import CtaBanner from '@/components/CtaBanner.astro'
+import Icon from '@/components/Icon.astro'
+import { getLangFromUrl, routes, useTranslations } from '@/i18n/utils'
+import { site } from '@/config/site'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
+
+const crumbs = [
+  { href: routes.home, label: t('nav.home') },
+  { href: routes.firm, label: t('nav.firm') },
+]
+
+const values = [0, 1, 2, 3].map((i) => ({
+  title: t(`cabinet.values.${i}.title` as any),
+  text: t(`cabinet.values.${i}.text` as any),
+}))
+
+const timeline = [0, 1, 2, 3].map((i) => ({
+  date: t(`cabinet.timeline.${i}.date` as any),
+  title: t(`cabinet.timeline.${i}.title` as any),
+  text: t(`cabinet.timeline.${i}.text` as any),
+}))
 ---
 
 <PageLayout
   title={t('cabinet.title')}
   description={t('cabinet.description')}
   intro={t('cabinet.intro')}
-/>
+  eyebrow={t('cabinet.eyebrow')}
+  crumbs={crumbs}
+>
+  <div class="grid gap-12 lg:grid-cols-[2fr_1fr]">
+    <div class="space-y-16">
+      <Reveal client:visible>
+        <section class="card p-8">
+          <p class="text-navy-700 font-serif text-xl italic">{t('cabinet.quote')}</p>
+          <h2 class="text-navy-700 mt-8 text-2xl">{t('cabinet.bio.title')}</h2>
+          <p class="text-navy-600 mt-4 text-[15px] leading-relaxed whitespace-pre-line">
+            {t('cabinet.bio.text')}
+          </p>
+        </section>
+      </Reveal>
+
+      <Reveal client:visible delay={0.05}>
+        <section>
+          <h2 class="text-navy-700 text-2xl">{t('cabinet.timeline.title')}</h2>
+          <ol class="border-gold-200 mt-8 space-y-8 border-l pl-6">
+            {
+              timeline.map((item) => (
+                <li class="relative">
+                  <span
+                    class="bg-gold-400 absolute top-1 -left-7 h-3 w-3 rounded-full border-2 border-white"
+                    aria-hidden="true"
+                  />
+                  <p class="text-gold-600 text-xs font-medium tracking-wide">
+                    {item.date}
+                  </p>
+                  <h3 class="text-navy-700 mt-1 text-lg">{item.title}</h3>
+                  <p class="text-navy-600 mt-2 text-[14px] leading-relaxed">
+                    {item.text}
+                  </p>
+                </li>
+              ))
+            }
+          </ol>
+        </section>
+      </Reveal>
+
+      <Reveal client:visible delay={0.1}>
+        <section>
+          <h2 class="text-navy-700 text-2xl">{t('cabinet.values.title')}</h2>
+          <p class="text-navy-600 mt-3 max-w-xl text-[15px]">
+            {t('cabinet.values.text')}
+          </p>
+          <div class="mt-8 grid gap-5 sm:grid-cols-2">
+            {
+              values.map((value) => (
+                <article class="card flex flex-col p-6">
+                  <h3 class="text-navy-700 text-lg">{value.title}</h3>
+                  <p class="text-navy-600 mt-2 grow text-[14px] leading-relaxed">
+                    {value.text}
+                  </p>
+                </article>
+              ))
+            }
+          </div>
+        </section>
+      </Reveal>
+    </div>
+
+    <aside class="space-y-6">
+      <Reveal client:visible>
+        <div class="card p-6">
+          <figure>
+            <div
+              class="bg-navy-100 text-navy-500 flex aspect-square items-center justify-center rounded-sm"
+              aria-label={t('cabinet.photo.alt')}
+            >
+              <Icon name="users" size={40} />
+            </div>
+            <figcaption class="text-navy-500 mt-3 text-[12px]">
+              {t('cabinet.photo.alt')}
+            </figcaption>
+          </figure>
+        </div>
+      </Reveal>
+
+      <Reveal client:visible delay={0.05}>
+        <div class="card p-6">
+          <h3 class="text-navy-700 text-lg">{t('cabinet.benin.title')}</h3>
+          <p class="text-navy-600 mt-2 text-[14px] leading-relaxed">
+            {t('cabinet.benin.text')}
+          </p>
+          <a
+            href={site.partner.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-navy-800 decoration-gold-400 hover:text-navy-950 mt-4 inline-flex items-center gap-2 text-[13px] font-medium underline decoration-1 underline-offset-4"
+          >
+            {t('cabinet.benin.link')}
+            <Icon name="arrow-right" size={16} class="text-gold-500" />
+          </a>
+        </div>
+      </Reveal>
+    </aside>
+  </div>
+
+  <Reveal client:visible delay={0.15}>
+    <div class="mt-16">
+      <CtaBanner
+        lang={lang}
+        title={t('cabinet.cta.title')}
+        text={t('cabinet.cta.text')}
+        primaryHref={routes.contact}
+        primaryLabel={t('cabinet.cta.primary')}
+      />
+    </div>
+  </Reveal>
+</PageLayout>

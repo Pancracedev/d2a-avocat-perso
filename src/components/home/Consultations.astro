@@ -1,0 +1,48 @@
+---
+import ConsultationCard from '../ConsultationCard.astro'
+import Reveal from '../Reveal'
+import SectionHeading from '../SectionHeading.astro'
+import type { UiKey } from '../../i18n/ui'
+import { getLangFromUrl, useTranslations } from '../../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const toConfirm = '[À confirmer]'
+
+const consultations = [0, 1, 2, 3].map((i) => ({
+  title: t(`home.consult.${i}.title` as UiKey),
+  format: t(`home.consult.${i}.format` as UiKey),
+  price: t(`home.consult.${i}.price` as UiKey),
+  note: t(`home.consult.${i}.note` as UiKey),
+}))
+---
+
+<section class="bg-navy-50/50">
+  <div class="wrap py-20 lg:py-24">
+    <SectionHeading
+      eyebrow={t('home.consult.eyebrow')}
+      title={t('home.consult.title')}
+      text={t('home.consult.text')}
+      align="center"
+    />
+    <Reveal client:visible>
+      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          consultations.map((consultation, index) => (
+            <ConsultationCard
+              title={consultation.title}
+              format={consultation.format}
+              price={consultation.price}
+              note={consultation.note}
+              isHighlighted={consultation.price !== toConfirm && index === 2}
+            />
+          ))
+        }
+      </div>
+      <p class="text-navy-500 mt-6 text-center text-[12px]">
+        {t('home.consult.disclaimer')}
+      </p>
+    </Reveal>
+  </div>
+</section>

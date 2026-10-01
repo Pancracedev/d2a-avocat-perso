@@ -5,7 +5,7 @@ import { localizePath } from '../i18n/utils'
 type Props = {
   href: string
   lang: Lang
-  variant?: 'primary' | 'secondary' | 'ghost'
+  variant?: 'primary' | 'secondary' | 'ghost' | 'gold' | 'outlineLight'
   className?: string
 }
 
@@ -14,6 +14,9 @@ const variants = {
   secondary:
     'border border-navy-600 text-navy-700 hover:border-gold-400 hover:text-navy-800 focus-visible:outline-gold-400',
   ghost: 'text-navy-700 hover:text-gold-500 focus-visible:outline-gold-400',
+  gold: 'bg-gold-400 text-navy-950 hover:bg-gold-300 focus-visible:outline-gold-100',
+  outlineLight:
+    'border border-navy-100 text-white hover:bg-white/10 focus-visible:outline-gold-400',
 }
 
 const { href, lang, variant = 'primary', className = '' } = Astro.props

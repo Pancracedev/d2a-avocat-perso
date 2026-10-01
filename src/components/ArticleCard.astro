@@ -1,0 +1,50 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import Icon from './Icon.astro'
+import type { Lang } from '../i18n/ui'
+import { localizePath } from '../i18n/utils'
+
+type Props = {
+  entry: CollectionEntry<'news'>
+  lang: Lang
+  label: string
+}
+
+const { entry, lang, label } = Astro.props
+const { title, description, date, category, slug } = entry.data
+const href = localizePath(lang, `/actualites/${slug}`)
+
+const formattedDate = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-GB', {
+  dateStyle: 'long',
+}).format(date)
+---
+
+<a
+  href={href}
+  class="card group hover:border-gold-300 hover:shadow-navy-100/60 flex flex-col p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+>
+  <div class="flex items-center justify-between gap-3">
+    <time class="text-navy-400 text-[12px] font-medium" datetime={date.toISOString()}>
+      {formattedDate}
+    </time>
+    <span
+      class="text-gold-600 border-gold-200 rounded-sm border px-2 py-0.5 text-[11px] font-medium"
+    >
+      {category}
+    </span>
+  </div>
+  <h3 class="text-navy-700 group-hover:text-navy-900 mt-4 text-xl transition-colors">
+    {title}
+  </h3>
+  <p class="text-navy-600 mt-3 grow text-[14px] leading-relaxed">
+    {description}
+  </p>
+  <span class="text-navy-800 mt-5 inline-flex items-center gap-2 text-[13px] font-medium">
+    {label}
+    <Icon
+      name="arrow-right"
+      size={16}
+      class="text-gold-500 transition-transform duration-300 group-hover:translate-x-1"
+    />
+  </span>
+</a>

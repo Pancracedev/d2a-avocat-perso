@@ -1,0 +1,65 @@
+---
+import Icon from '../Icon.astro'
+import Reveal from '../Reveal'
+import SectionHeading from '../SectionHeading.astro'
+import type { UiKey } from '../../i18n/ui'
+import { site } from '../../config/site'
+import { getLangFromUrl, useTranslations } from '../../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const countries = [0, 1, 2].map((i) => ({
+  code: t(`home.intl.country.${i}.code` as UiKey),
+  name: t(`home.intl.country.${i}.name` as UiKey),
+  text: t(`home.intl.country.${i}.text` as UiKey),
+}))
+---
+
+<section class="bg-navy-800">
+  <div class="wrap py-20 lg:py-24">
+    <SectionHeading
+      eyebrow={t('home.international.eyebrow')}
+      title={t('home.international.title')}
+      text={t('home.international.text')}
+      align="center"
+    />
+    <Reveal client:visible>
+      <ul class="mt-12 grid gap-px overflow-hidden rounded-sm sm:grid-cols-3">
+        {
+          countries.map((country) => (
+            <li class="border-navy-700 bg-navy-900 border-b p-6 sm:border-r sm:border-b-0">
+              <p class="text-gold-400 text-[11px] font-semibold tracking-[0.2em]">
+                {country.code}
+              </p>
+              <h3 class="mt-2 text-xl text-white">{country.name}</h3>
+              <p class="text-navy-200 mt-3 text-[14px] leading-relaxed">{country.text}</p>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div
+        class="border-navy-700 bg-navy-900/60 mt-8 flex flex-col gap-4 rounded-sm border p-6 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <div>
+          <p class="text-gold-400 text-[12px] font-medium tracking-[0.16em]">
+            {t('home.intl.partner.title')}
+          </p>
+          <p class="text-navy-100 mt-2 max-w-xl text-[14px]">
+            {t('home.intl.partner.text')}
+          </p>
+        </div>
+        <a
+          href={site.partner.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-navy-100 decoration-gold-400 inline-flex shrink-0 items-center gap-2 text-[13px] font-medium underline decoration-1 underline-offset-4 transition-colors hover:text-white"
+        >
+          {t('home.intl.partner.link')}
+          <Icon name="arrow-right" size={16} class="text-gold-400" />
+        </a>
+      </div>
+    </Reveal>
+  </div>
+</section>

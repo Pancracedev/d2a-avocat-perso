@@ -1,0 +1,46 @@
+---
+import type { Lang } from '../i18n/ui'
+import { localizePath } from '../i18n/utils'
+
+type Crumb = {
+  href: string
+  label: string
+}
+
+type Props = {
+  lang: Lang
+  items: Crumb[]
+  label: string
+}
+
+const { lang, items, label } = Astro.props
+---
+
+<nav
+  aria-label={label}
+  class="text-navy-400 flex flex-wrap items-center gap-2 text-[12px] font-medium"
+>
+  {
+    items.map((crumb, index) => (
+      <Fragment>
+        {index > 0 && (
+          <span class="text-gold-400" aria-hidden="true">
+            /
+          </span>
+        )}
+        {index < items.length - 1 ? (
+          <a
+            href={localizePath(lang, crumb.href)}
+            class="hover:text-navy-700 transition-colors"
+          >
+            {crumb.label}
+          </a>
+        ) : (
+          <span class="text-navy-600" aria-current="page">
+            {crumb.label}
+          </span>
+        )}
+      </Fragment>
+    ))
+  }
+</nav>

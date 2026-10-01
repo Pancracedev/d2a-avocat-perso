@@ -1,0 +1,33 @@
+---
+import Icon from './Icon.astro'
+
+type Item = {
+  title: string
+  content: string
+}
+
+type Props = {
+  items: Item[]
+}
+
+const { items } = Astro.props
+---
+
+<ul class="card divide-navy-100 divide-y px-5">
+  {
+    items.map((item, index) => (
+      <li>
+        <details name="faq" open={index === 0}>
+          <summary class="text-navy-800 group hover:text-navy-950 flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-[15px] font-medium transition-colors [&::-webkit-details-marker]:hidden">
+            {item.title}
+            <Icon
+              name="chevron-down"
+              class="text-gold-500 shrink-0 transition-transform duration-200 group-open:rotate-180"
+            />
+          </summary>
+          <p class="text-navy-600 pb-5 text-[14px] leading-relaxed">{item.content}</p>
+        </details>
+      </li>
+    ))
+  }
+</ul>

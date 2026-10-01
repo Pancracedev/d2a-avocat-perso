@@ -1,0 +1,30 @@
+---
+import Reveal from '../Reveal'
+import SectionHeading from '../SectionHeading.astro'
+import StepList from '../StepList.astro'
+import type { UiKey } from '../../i18n/ui'
+import { getLangFromUrl, useTranslations } from '../../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const steps = [0, 1, 2, 3].map((i) => ({
+  title: t(`home.method.${i}.title` as UiKey),
+  text: t(`home.method.${i}.text` as UiKey),
+}))
+---
+
+<section class="bg-white">
+  <div class="wrap py-20 lg:py-24">
+    <SectionHeading
+      eyebrow={t('home.method.eyebrow')}
+      title={t('home.method.title')}
+      text={t('home.method.text')}
+    />
+    <Reveal client:visible>
+      <div class="mt-12">
+        <StepList steps={steps} />
+      </div>
+    </Reveal>
+  </div>
+</section>

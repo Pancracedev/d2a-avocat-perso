@@ -1,0 +1,36 @@
+---
+type Props = {
+  title: string
+  format: string
+  price: string
+  note: string
+  isHighlighted?: boolean
+}
+
+const { title, format, price, note, isHighlighted = false } = Astro.props
+---
+
+<div
+  class:list={[
+    'card flex flex-col p-6',
+    isHighlighted && 'border-gold-300 bg-gold-50/40',
+  ]}
+>
+  <div class="flex items-start justify-between gap-3">
+    <h3 class="text-navy-700 text-[17px]">{title}</h3>
+    <p
+      class:list={[
+        'shrink-0 rounded-sm px-2.5 py-1 text-[13px] font-medium',
+        price === '[À confirmer]'
+          ? 'bg-navy-50 text-navy-400'
+          : 'bg-gold-100 text-gold-700',
+      ]}
+    >
+      {price}
+    </p>
+  </div>
+  <p class="text-gold-600 mt-1 text-[12px] font-medium tracking-wide">
+    {format}
+  </p>
+  <p class="text-navy-600 mt-4 grow text-[14px] leading-relaxed">{note}</p>
+</div>

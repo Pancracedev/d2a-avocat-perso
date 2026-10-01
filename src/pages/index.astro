@@ -2,11 +2,29 @@
 import HeroSection from '@/components/HeroSection.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import Highlights from '@/components/home/Highlights.astro'
+import Expertises from '@/components/home/Expertises.astro'
+import International from '@/components/home/International.astro'
+import Method from '@/components/home/Method.astro'
+import Consultations from '@/components/home/Consultations.astro'
+import LatestNews from '@/components/home/LatestNews.astro'
+import Cta from '@/components/home/Cta.astro'
+import { getCollection } from 'astro:content'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
+
+const posts = await getCollection('news', (entry) => entry.data.lang === lang)
+posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 ---
 
 <BaseLayout title={t('hero.title')} description={t('hero.subtitle')}>
   <HeroSection />
+  <Highlights />
+  <Expertises />
+  <International />
+  <Method />
+  <Consultations />
+  <LatestNews posts={posts} />
+  <Cta />
 </BaseLayout>

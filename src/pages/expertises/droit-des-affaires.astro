@@ -1,13 +1,109 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro'
-import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import Reveal from '@/components/Reveal'
+import CtaBanner from '@/components/CtaBanner.astro'
+import CheckList from '@/components/CheckList.astro'
+import StepList from '@/components/StepList.astro'
+import Accordion from '@/components/Accordion.astro'
+import Icon from '@/components/Icon.astro'
+import { getLangFromUrl, routes, useTranslations } from '@/i18n/utils'
+import type { UiKey } from '@/i18n/ui'
+import { site } from '@/config/site'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
+
+const crumbs = [
+  { href: routes.home, label: t('nav.home') },
+  { href: routes.expertise, label: t('nav.expertise') },
+]
+
+const situations = [0, 1, 2, 3, 4, 5, 6].map((i) =>
+  t(`expert.business.sit.${i}` as UiKey),
+)
+const steps = [0, 1, 2, 3].map((i) => ({
+  title: t(`expert.business.met.${i}.title` as UiKey),
+  text: t(`expert.business.met.${i}.text` as UiKey),
+}))
+const faq = [0, 1, 2, 3, 4].map((i) => ({
+  title: t(`expert.business.faq.${i}.q` as UiKey),
+  content: t(`expert.business.faq.${i}.a` as UiKey),
+}))
 ---
 
 <PageLayout
-  title={t('expertise.business.title')}
-  description={t('expertise.business.description')}
-  intro={t('expertise.business.intro')}
-/>
+  title={t('expert.business.title')}
+  description={t('expert.business.description')}
+  intro={t('expert.business.intro')}
+  eyebrow={t('expert.business.eyebrow')}
+  crumbs={[...crumbs, { href: routes.business, label: t('expert.business.title') }]}
+>
+  <Reveal client:visible>
+    <section>
+      <h2 class="text-navy-700 text-2xl">{t('expert.business.situations.title')}</h2>
+      <div class="mt-6">
+        <CheckList items={situations} />
+      </div>
+    </section>
+  </Reveal>
+
+  <Reveal client:visible delay={0.05}>
+    <section class="mt-14">
+      <h2 class="text-navy-700 text-2xl">{t('expert.business.method.title')}</h2>
+      <div class="mt-8">
+        <StepList steps={steps} />
+      </div>
+    </section>
+  </Reveal>
+
+  <Reveal client:visible delay={0.1}>
+    <section class="mt-14">
+      <h2 class="text-navy-700 text-2xl">{t('expert.zones.title')}</h2>
+      <p class="text-navy-600 mt-3 max-w-2xl text-[15px]">{t('expert.zones.intro')}</p>
+      <div class="mt-6 grid gap-4 sm:grid-cols-3">
+        <div class="card flex flex-col items-start p-6">
+          <p class="text-gold-600 text-xs font-semibold tracking-[0.16em]">FR</p>
+          <h3 class="text-navy-700 mt-1 text-lg">{t('expert.zones.france')}</h3>
+        </div>
+        <div class="card flex flex-col items-start p-6">
+          <p class="text-gold-600 text-xs font-semibold tracking-[0.16em]">BJ</p>
+          <h3 class="text-navy-700 mt-1 text-lg">{t('expert.zones.benin')}</h3>
+          <a
+            href={site.partner.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-navy-700 decoration-gold-400 hover:text-navy-950 mt-3 inline-flex items-center gap-1 text-[12px] font-medium underline underline-offset-4"
+          >
+            {site.partner.name}
+            <Icon name="arrow-right" size={14} class="text-gold-500" />
+          </a>
+        </div>
+        <div class="card flex flex-col items-start p-6">
+          <p class="text-gold-600 text-xs font-semibold tracking-[0.16em]">CI</p>
+          <h3 class="text-navy-700 mt-1 text-lg">{t('expert.zones.civ')}</h3>
+        </div>
+      </div>
+    </section>
+  </Reveal>
+
+  <Reveal client:visible delay={0.15}>
+    <section class="mt-14">
+      <h2 class="text-navy-700 text-2xl">{t('expert.business.faq.title')}</h2>
+      <div class="mt-6">
+        <Accordion items={faq} />
+      </div>
+    </section>
+  </Reveal>
+
+  <Reveal client:visible delay={0.2}>
+    <div class="mt-16">
+      <CtaBanner
+        lang={lang}
+        title={t('expert.cta.title')}
+        text={t('expert.cta.text')}
+        primaryHref={routes.contact}
+        primaryLabel={t('expert.cta.primary')}
+      />
+    </div>
+  </Reveal>
+</PageLayout>
