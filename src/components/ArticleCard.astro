@@ -19,10 +19,7 @@ const formattedDate = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-GB',
 }).format(date)
 ---
 
-<a
-  href={href}
-  class="card group hover:border-gold-300 hover:shadow-navy-100/60 flex flex-col p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
->
+<a href={href} class="card group flex flex-col overflow-hidden p-7">
   <div class="flex items-center justify-between gap-3">
     <time class="text-navy-400 text-[12px] font-medium" datetime={date.toISOString()}>
       {formattedDate}
@@ -47,4 +44,7 @@ const formattedDate = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-GB',
       class="text-gold-500 transition-transform duration-300 group-hover:translate-x-1"
     />
   </span>
+  <span
+    class="bg-gold-400 absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full"
+    aria-hidden="true"></span>
 </a>

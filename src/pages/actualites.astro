@@ -40,13 +40,13 @@ function mapCategory(post: any): Filter {
   crumbs={crumbs}
 >
   <Reveal client:visible>
-    <div class="card flex flex-wrap gap-2 p-2">
+    <div class="flex flex-wrap gap-2">
       {
         categories.map((cat) => (
           <button
             type="button"
             data-filter={cat}
-            class="filter-btn data-[active=true]:bg-navy-700 rounded-sm px-3 py-1.5 text-[13px] font-medium transition-colors duration-200 data-[active=true]:text-white"
+            class="filter-btn bg-navy-50 text-navy-600 hover:bg-navy-100 data-[active=true]:bg-navy-700 shadow-navy-900/5 data-[active=true]:shadow-navy-900/10 rounded-full px-4 py-1.5 text-[13px] font-medium shadow-sm transition-colors duration-200 data-[active=true]:text-white"
           >
             {t(`news.filter.${cat}` as any)}
           </button>
