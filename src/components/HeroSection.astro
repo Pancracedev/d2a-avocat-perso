@@ -1,29 +1,35 @@
 ---
 import Button from './Button.astro'
 import Reveal from './Reveal'
+import Icon from './Icon.astro'
 import { getLangFromUrl, routes, useTranslations } from '../i18n/utils'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
 
-<section class="relative overflow-hidden">
+<section class="from-navy-50 relative overflow-hidden bg-gradient-to-b to-white">
   <div
     class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--color-gold-100)_0%,_transparent_42%)] opacity-70"
     aria-hidden="true"
   >
   </div>
+  <div
+    class="bg-gold-100/30 pointer-events-none absolute -top-32 right-0 h-64 w-64 translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
   <div class="relative mx-auto max-w-6xl px-5 py-24 lg:px-8 lg:py-32">
     <Reveal client:load>
-      <p class="text-gold-500 text-[13px] font-medium tracking-[0.14em]">D2A Avocat</p>
+      <p class="text-gold-500 text-[13px] font-medium tracking-[0.16em]">D2A Avocat</p>
     </Reveal>
     <Reveal client:load delay={0.08}>
-      <h1 class="text-navy-700 mt-6 max-w-3xl text-5xl sm:text-6xl">
+      <h1 class="text-navy-700 mt-6 max-w-3xl text-5xl sm:text-6xl lg:text-[64px]">
         {t('hero.title')}
       </h1>
     </Reveal>
     <Reveal client:load delay={0.16}>
-      <p class="text-navy-600 mt-6 max-w-xl text-[16px]">
+      <p class="text-navy-600 mt-6 max-w-xl text-[16px] lg:text-lg">
         {t('hero.subtitle')}
       </p>
     </Reveal>
@@ -33,6 +39,24 @@ const t = useTranslations(lang)
         <Button href={routes.expertise} lang={lang} variant="secondary">
           {t('hero.ctaSecondary')}
         </Button>
+      </div>
+    </Reveal>
+    <Reveal client:load delay={0.32}>
+      <div
+        class="text-navy-500 mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-[12px]"
+      >
+        <div class="flex items-center gap-2">
+          <Icon name="briefcase" size={16} class="text-gold-500" />
+          <span>{t('home.highlight.0.title')}</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <Icon name="globe" size={16} class="text-gold-500" />
+          <span>{t('home.highlight.1.title')}</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <Icon name="clock" size={16} class="text-gold-500" />
+          <span>{t('home.highlight.2.title')}</span>
+        </div>
       </div>
     </Reveal>
   </div>
