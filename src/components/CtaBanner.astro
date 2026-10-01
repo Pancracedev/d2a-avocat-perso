@@ -25,8 +25,13 @@ const {
 } = Astro.props
 ---
 
-<section class="bg-navy-900">
-  <div class="wrap flex flex-col items-center py-20 text-center lg:py-24">
+<section class="bg-navy-900 relative overflow-hidden">
+  <div
+    class="bg-gold-400/10 pointer-events-none absolute -top-20 right-0 h-40 w-40 blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+  <div class="wrap relative flex flex-col items-center py-20 text-center lg:py-24">
     {
       eyebrow && (
         <p class="text-gold-400 text-[12px] font-medium tracking-[0.16em]">{eyebrow}</p>
