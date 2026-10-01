@@ -16,8 +16,13 @@ const countries = [0, 1, 2].map((i) => ({
 }))
 ---
 
-<section class="bg-navy-800">
-  <div class="wrap py-20 lg:py-24">
+<section class="bg-navy-800 relative overflow-hidden">
+  <div
+    class="bg-gold-400/10 pointer-events-none absolute -top-24 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+  <div class="wrap relative py-20 lg:py-24">
     <SectionHeading
       eyebrow={t('home.international.eyebrow')}
       title={t('home.international.title')}

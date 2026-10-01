@@ -1,5 +1,5 @@
 ---
-import Button from '@/components/Button.astro'
+import ExpertiseCard from '@/components/ExpertiseCard.astro'
 import Reveal from '@/components/Reveal'
 import PageLayout from '@/layouts/PageLayout.astro'
 import { getLangFromUrl, routes, useTranslations } from '@/i18n/utils'
@@ -8,9 +8,24 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 
 const areas = [
-  { href: routes.business, title: t('expertises.business') },
-  { href: routes.immigration, title: t('expertises.immigration') },
-  { href: routes.family, title: t('expertises.family') },
+  {
+    href: routes.business,
+    icon: 'briefcase' as const,
+    title: t('expertises.business'),
+    text: t('expert.business.description'),
+  },
+  {
+    href: routes.immigration,
+    icon: 'globe' as const,
+    title: t('expertises.immigration'),
+    text: t('expert.immigration.description'),
+  },
+  {
+    href: routes.family,
+    icon: 'home' as const,
+    title: t('expertises.family'),
+    text: t('expert.family.description'),
+  },
 ]
 ---
 
@@ -20,16 +35,20 @@ const areas = [
   intro={t('expertises.intro')}
 >
   <Reveal client:visible>
-    <ul class="grid gap-4 sm:grid-cols-3">
+    <div class="grid gap-6 lg:grid-cols-3">
       {
-        areas.map((area) => (
-          <li>
-            <Button href={area.href} lang={lang} variant="secondary" className="w-full">
-              {area.title}
-            </Button>
-          </li>
+        areas.map((area, index) => (
+          <ExpertiseCard
+            lang={lang}
+            icon={area.icon}
+            index={String(index + 1).padStart(2, '0')}
+            title={area.title}
+            text={area.text}
+            href={area.href}
+            ctaLabel={t('expertises.card.cta')}
+          />
         ))
       }
-    </ul>
+    </div>
   </Reveal>
 </PageLayout>
