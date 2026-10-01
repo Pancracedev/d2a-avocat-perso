@@ -18,28 +18,30 @@ type Props = {
 const { lang, icon, index, title, text, href, ctaLabel } = Astro.props
 ---
 
-<a
-  href={localizePath(lang, href)}
-  class="card group hover:border-gold-300 hover:shadow-navy-100/60 flex flex-col p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
->
+<a href={localizePath(lang, href)} class="card group flex flex-col p-8">
   <div class="flex items-start justify-between">
     <span class="text-navy-100 font-serif text-5xl font-light" aria-hidden="true">
       {index}
     </span>
     <span
-      class="bg-navy-50 text-navy-700 group-hover:bg-gold-50 group-hover:text-gold-600 rounded-sm p-3 transition-colors duration-300"
+      class="bg-navy-50 text-navy-700 group-hover:bg-gold-50 group-hover:text-gold-600 shadow-navy-900/5 rounded-sm p-3 shadow-sm transition-colors duration-300"
     >
       <Icon name={icon} size={24} />
     </span>
   </div>
   <h3 class="text-navy-700 mt-8 text-xl">{title}</h3>
   <p class="text-navy-600 mt-3 grow text-[15px] leading-relaxed">{text}</p>
-  <span class="text-navy-800 mt-6 inline-flex items-center gap-2 text-[13px] font-medium">
-    {ctaLabel}
-    <Icon
-      name="arrow-right"
-      size={16}
-      class="text-gold-500 transition-transform duration-300 group-hover:translate-x-1"
-    />
-  </span>
+  <div class="mt-6 flex items-center justify-between">
+    <span class="text-navy-800 inline-flex items-center gap-2 text-[13px] font-medium">
+      {ctaLabel}
+      <Icon
+        name="arrow-right"
+        size={16}
+        class="text-gold-500 transition-transform duration-300 group-hover:translate-x-1"
+      />
+    </span>
+    <span
+      class="bg-gold-400 h-0.5 w-0 transition-all duration-300 group-hover:w-8"
+      aria-hidden="true"></span>
+  </div>
 </a>
