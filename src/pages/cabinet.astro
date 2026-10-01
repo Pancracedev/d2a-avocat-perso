@@ -15,6 +15,7 @@ const crumbs = [
 ]
 
 const values = [0, 1, 2, 3].map((i) => ({
+  icon: (['target', 'shield', 'heart', 'briefcase'] as const)[i],
   title: t(`cabinet.values.${i}.title` as any),
   text: t(`cabinet.values.${i}.text` as any),
 }))
@@ -36,9 +37,19 @@ const timeline = [0, 1, 2, 3].map((i) => ({
   <div class="grid gap-12 lg:grid-cols-[2fr_1fr]">
     <div class="space-y-16">
       <Reveal client:visible>
-        <section class="card p-8">
-          <p class="text-navy-700 font-serif text-xl italic">{t('cabinet.quote')}</p>
-          <h2 class="text-navy-700 mt-8 text-2xl">{t('cabinet.bio.title')}</h2>
+        <section class="card p-8 lg:p-10">
+          <blockquote class="border-gold-300 relative border-l-2 pl-6">
+            <span
+              class="text-gold-300 pointer-events-none absolute -top-4 -left-1 font-serif text-5xl leading-none select-none"
+              aria-hidden="true"
+            >
+              “
+            </span>
+            <p class="text-navy-800 font-serif text-xl italic lg:text-2xl">
+              {t('cabinet.quote')}
+            </p>
+          </blockquote>
+          <h2 class="text-navy-700 mt-10 text-2xl">{t('cabinet.bio.title')}</h2>
           <p class="text-navy-600 mt-4 text-[15px] leading-relaxed whitespace-pre-line">
             {t('cabinet.bio.text')}
           </p>
@@ -80,7 +91,10 @@ const timeline = [0, 1, 2, 3].map((i) => ({
             {
               values.map((value) => (
                 <article class="card flex flex-col p-6">
-                  <h3 class="text-navy-700 text-lg">{value.title}</h3>
+                  <span class="bg-gold-50 text-gold-600 shadow-gold-900/5 flex h-10 w-10 items-center justify-center rounded-sm shadow-sm">
+                    <Icon name={value.icon} size={20} />
+                  </span>
+                  <h3 class="text-navy-700 mt-5 text-lg">{value.title}</h3>
                   <p class="text-navy-600 mt-2 grow text-[14px] leading-relaxed">
                     {value.text}
                   </p>
@@ -94,13 +108,22 @@ const timeline = [0, 1, 2, 3].map((i) => ({
 
     <aside class="space-y-6">
       <Reveal client:visible>
-        <div class="card p-6">
+        <div class="card overflow-hidden p-6">
           <figure>
             <div
-              class="bg-navy-100 text-navy-500 flex aspect-square items-center justify-center rounded-sm"
+              class="from-navy-50 to-navy-100 relative flex aspect-square items-center justify-center rounded-sm bg-gradient-to-br shadow-inner"
+              role="img"
               aria-label={t('cabinet.photo.alt')}
             >
-              <Icon name="users" size={40} />
+              <span
+                class="text-navy-200 font-serif text-6xl font-light"
+                aria-hidden="true"
+              >
+                D2A
+              </span>
+              <span
+                class="bg-gold-400 absolute bottom-5 left-1/2 h-px w-10 -translate-x-1/2"
+                aria-hidden="true"></span>
             </div>
             <figcaption class="text-navy-500 mt-3 text-[12px]">
               {t('cabinet.photo.alt')}
