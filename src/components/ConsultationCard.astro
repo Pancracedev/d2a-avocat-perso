@@ -12,15 +12,22 @@ const { title, format, price, note, isHighlighted = false } = Astro.props
 
 <div
   class:list={[
-    'card flex flex-col p-6',
+    'card group relative flex flex-col p-6',
     isHighlighted && 'border-gold-300 bg-gold-50/40',
   ]}
 >
+  {
+    isHighlighted && (
+      <span class="bg-gold-400 text-navy-950 shadow-gold-900/10 absolute -top-3 right-4 rounded-sm px-2 py-0.5 text-[11px] font-medium shadow-sm">
+        Recommandé
+      </span>
+    )
+  }
   <div class="flex items-start justify-between gap-3">
     <h3 class="text-navy-700 text-[17px]">{title}</h3>
     <p
       class:list={[
-        'shrink-0 rounded-sm px-2.5 py-1 text-[13px] font-medium',
+        'shadow-navy-900/5 shrink-0 rounded-sm px-2.5 py-1 text-[13px] font-medium shadow-sm',
         price === '[À confirmer]'
           ? 'bg-navy-50 text-navy-400'
           : 'bg-gold-100 text-gold-700',
