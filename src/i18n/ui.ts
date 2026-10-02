@@ -150,7 +150,7 @@ export const ui = {
     'cabinet.intro':
       'D2A Avocat est un cabinet généraliste, premium et accessible, pensé pour vous accompagner avec précision — sans jargon inutile, sans distance inutile.',
     'cabinet.quote': 'Le droit qui vous ressemble.',
-    'cabinet.photo.alt': 'Portrait professionnel de Maître Diane [à venir]',
+    'cabinet.photo.alt': 'Un cadre de travail clair et confidentiel',
     'cabinet.bio.title': 'Maître Diane',
     'cabinet.bio.text':
       '[À COMPLÉTER] Bio et parcours de Maître Diane. En attendant, voici l’essentiel : elle dirige D2A Avocat, a fait du conseil simple et exigeant sa signature, et accompagne ses clients en France comme à l’international.',
@@ -655,7 +655,7 @@ export const ui = {
     'cabinet.intro':
       'D2A Avocat is a general practice firm — premium, warm and precise. No unnecessary jargon. No unnecessary distance.',
     'cabinet.quote': 'The law that feels like you.',
-    'cabinet.photo.alt': 'Professional portrait of Maître Diane [to come]',
+    'cabinet.photo.alt': 'A clear and confidential working environment',
     'cabinet.bio.title': 'Maître Diane',
     'cabinet.bio.text':
       '[À COMPLÉTER] Biography and background of Maître Diane. In the meantime, the essentials: she leads D2A Avocat, makes clear and demanding advice her signature, and supports clients in France and internationally.',

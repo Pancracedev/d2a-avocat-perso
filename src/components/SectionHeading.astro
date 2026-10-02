@@ -4,17 +4,18 @@ type Props = {
   title: string
   text?: string
   align?: 'left' | 'center'
+  light?: boolean
 }
 
-const { eyebrow, title, text, align = 'left' } = Astro.props
+const { eyebrow, title, text, align = 'left', light = false } = Astro.props
 ---
 
 <div class:list={['max-w-2xl', align === 'center' && 'mx-auto text-center']}>
-  {
-    eyebrow && (
-      <p class="text-gold-500 text-[12px] font-medium tracking-[0.16em]">{eyebrow}</p>
-    )
-  }
-  <h2 class="text-navy-700 mt-3 text-3xl sm:text-4xl">{title}</h2>
-  {text && <p class="text-navy-600 mt-4 text-[16px]">{text}</p>}
+  {eyebrow && (
+    <p class:list={['text-[11px] font-semibold uppercase tracking-[0.2em]', light ? 'text-gold-300' : 'text-gold-600']}>
+      {eyebrow}
+    </p>
+  )}
+  <h2 class:list={['mt-3 text-3xl sm:text-4xl', light ? 'text-white' : 'text-ink-800']}>{title}</h2>
+  {text && <p class:list={['mt-4 text-[16px]', light ? 'text-navy-200' : 'text-ink-600']}>{text}</p>}
 </div>
