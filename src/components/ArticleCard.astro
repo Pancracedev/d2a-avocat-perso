@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content'
 import Icon from './Icon.astro'
 import type { Lang } from '../i18n/ui'
-import { localizePath } from '../i18n/utils'
+import { localizePath, useTranslations } from '../i18n/utils'
 
 type Props = {
   entry: CollectionEntry<'news'>
@@ -11,7 +11,8 @@ type Props = {
 }
 
 const { entry, lang, label } = Astro.props
-const { title, description, date, category, slug } = entry.data
+const t = useTranslations(lang)
+const { title, description, date, category, slug, updated } = entry.data
 const href = localizePath(lang, `/actualites/${slug}`)
 
 const formattedDate = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-GB', {
@@ -36,6 +37,16 @@ const formattedDate = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-GB',
   <p class="text-navy-600 mt-3 grow text-[14px] leading-relaxed">
     {description}
   </p>
+  {
+    updated && (
+      <p class="text-navy-400 mt-3 text-[11px]">
+        {t('news.updated' as any)}{' '}
+        {new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-GB', {
+          dateStyle: 'long',
+        }).format(updated)}
+      </p>
+    )
+  }
   <span class="text-navy-800 mt-5 inline-flex items-center gap-2 text-[13px] font-medium">
     {label}
     <Icon

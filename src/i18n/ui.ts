@@ -164,7 +164,8 @@ export const ui = {
     'cabinet.intro':
       'D2A Avocat est un cabinet généraliste, premium et accessible, pensé pour vous accompagner avec précision — sans jargon inutile, sans distance inutile.',
     'cabinet.quote': 'Le droit qui vous ressemble.',
-    'cabinet.photo.alt': 'Un cadre de travail clair et confidentiel',
+    'cabinet.photo.alt': 'Espace réservé au portrait de Maître Diane',
+    'cabinet.photo.pending': 'Portrait de Maître Diane à venir',
     'cabinet.bio.title': 'Maître Diane',
     'cabinet.bio.text':
       '[À COMPLÉTER] Bio et parcours de Maître Diane. En attendant, voici l’essentiel : elle dirige D2A Avocat, a fait du conseil simple et exigeant sa signature, et accompagne ses clients en France comme à l’international.',
@@ -428,6 +429,8 @@ export const ui = {
     'news.filter.family': 'Famille',
     'news.empty': 'Aucune publication pour ce filtre pour le moment.',
     'news.read': 'Lire l’article',
+    'news.published': 'Publié le',
+    'news.updated': 'Mis à jour le',
     'news.article.disclaimer':
       'Cet article est fourni à titre informatif et ne remplace pas l’analyse personnalisée de votre situation.',
     'news.back': 'Toutes les actualités',
@@ -691,7 +694,8 @@ export const ui = {
     'cabinet.intro':
       'D2A Avocat is a general practice firm — premium, warm and precise. No unnecessary jargon. No unnecessary distance.',
     'cabinet.quote': 'The law that feels like you.',
-    'cabinet.photo.alt': 'A clear and confidential working environment',
+    'cabinet.photo.alt': 'Space reserved for Maître Diane’s portrait',
+    'cabinet.photo.pending': 'Maître Diane’s portrait coming soon',
     'cabinet.bio.title': 'Maître Diane',
     'cabinet.bio.text':
       '[À COMPLÉTER] Biography and background of Maître Diane. In the meantime, the essentials: she leads D2A Avocat, makes clear and demanding advice her signature, and supports clients in France and internationally.',
@@ -944,6 +948,8 @@ export const ui = {
     'news.filter.family': 'Family',
     'news.empty': 'No publication for this filter at the moment.',
     'news.read': 'Read the article',
+    'news.published': 'Published',
+    'news.updated': 'Updated',
     'news.article.disclaimer':
       'This article is for information only and does not replace a personalised review of your situation.',
     'news.back': 'All insights',

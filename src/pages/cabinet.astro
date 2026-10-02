@@ -110,15 +110,21 @@ const timeline = [0, 1, 2, 3].map((i) => ({
       <Reveal client:visible>
         <div class="border-ink-200/90 border-t pt-6">
           <figure>
-            <div class="media-frame aspect-[4/5] shadow-inner">
-              <img
-                src="/images/office-light.jpg"
-                alt="Espace de travail lumineux et contemporain"
-                width="3000"
-                height="4500"
-                loading="lazy"
-                decoding="async"
-              />
+            <div
+              class="portrait-placeholder aspect-[4/5]"
+              role="img"
+              aria-label={t('cabinet.photo.alt')}
+            >
+              <span class="brand-mark border-gold-300 text-gold-300 h-16 w-16 text-base"
+                >D2A</span
+              >
+              <span class="mt-6 max-w-[14rem] text-center font-serif text-2xl text-white"
+                >{t('cabinet.photo.pending')}</span
+              >
+              <span
+                class="text-navy-200 mt-3 text-center text-[11px] tracking-[0.18em] uppercase"
+                >Portrait de marque</span
+              >
             </div>
             <figcaption class="text-navy-500 mt-3 text-[12px]">
               {t('cabinet.photo.alt')}

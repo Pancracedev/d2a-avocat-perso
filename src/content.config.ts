@@ -8,6 +8,7 @@ const news = defineCollection({
     title: z.string(),
     description: z.string(),
     date: z.coerce.date(),
+    updated: z.coerce.date().optional(),
     category: z.string(),
     slug: z.string(),
     lang: z.enum(['fr', 'en']),

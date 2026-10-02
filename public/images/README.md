@@ -4,7 +4,7 @@ Ces images servent uniquement à valider la direction artistique et les recadrag
 
 - `office-hero.jpeg` — intérieur de bureau contemporain, utilisé dans le hero.
 - `office-detail.jpeg` — salle de réunion contemporaine, utilisée dans la section internationale.
-- `office-light.jpg` — espace de travail lumineux, utilisé temporairement sur la page Cabinet.
+- La page Cabinet utilise temporairement un placeholder de marque en CSS, en attendant le portrait réel de Maître Diane.
 
 Avant la mise en production, remplacer ces fichiers par :
 
