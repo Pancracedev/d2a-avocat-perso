@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props
-const { title, description, date, category } = post.data
+const { title, description, date, category, updated } = post.data
 const { Content } = await render(post)
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -33,12 +33,29 @@ const crumbs = [
 <PageLayout title={title} description={description} eyebrow={category} crumbs={crumbs}>
   <Reveal client:visible>
     <article class="max-w-3xl">
-      <time class="text-navy-400 text-[13px]" datetime={date.toISOString()}
-        >{formattedDate}</time
-      >
+      <p class="text-navy-400 text-[13px]">
+        {t('news.published' as any)}
+        <time datetime={date.toISOString()}> {formattedDate}</time>
+        {
+          updated && (
+            <>
+              {' '}
+              · {t('news.updated' as any)}{' '}
+              <time datetime={updated.toISOString()}>
+                {new Intl.DateTimeFormat('en-GB', { dateStyle: 'long' }).format(updated)}
+              </time>
+            </>
+          )
+        }
+      </p>
       <div class="text-navy-700 mt-8 space-y-6 text-[16px] leading-relaxed">
         <Content />
       </div>
+      <p
+        class="border-navy-100 text-navy-500 mt-10 border-t pt-5 text-[12px] leading-relaxed"
+      >
+        {t('news.article.disclaimer' as any)}
+      </p>
     </article>
   </Reveal>
   <Reveal client:visible delay={0.1}>

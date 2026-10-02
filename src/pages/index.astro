@@ -4,7 +4,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 import Highlights from '@/components/home/Highlights.astro'
 import ClientGuide from '@/components/home/ClientGuide.astro'
-import Expertises from '@/components/home/Expertises.astro'
 import International from '@/components/home/International.astro'
 import Method from '@/components/home/Method.astro'
 import Consultations from '@/components/home/Consultations.astro'
@@ -23,7 +22,6 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   <HeroSection />
   <Highlights />
   <ClientGuide />
-  <Expertises />
   <International />
   <Method />
   <Consultations />

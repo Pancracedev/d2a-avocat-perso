@@ -11,18 +11,21 @@ const items = [
     icon: 'briefcase' as const,
     title: t('home.guide.0.title' as UiKey),
     text: t('home.guide.0.text' as UiKey),
+    domain: t('expertises.business'),
     href: routes.business,
   },
   {
     icon: 'globe' as const,
     title: t('home.guide.1.title' as UiKey),
     text: t('home.guide.1.text' as UiKey),
+    domain: t('expertises.immigration'),
     href: routes.immigration,
   },
   {
     icon: 'home' as const,
     title: t('home.guide.2.title' as UiKey),
     text: t('home.guide.2.text' as UiKey),
+    domain: t('expertises.family'),
     href: routes.family,
   },
 ]
@@ -55,6 +58,9 @@ const items = [
                 />
               </div>
               <h3 class="text-navy-800 mt-10 text-2xl">{item.title}</h3>
+              <p class="text-gold-600 mt-3 text-[11px] font-semibold tracking-[0.16em] uppercase">
+                {item.domain}
+              </p>
               <p class="text-ink-600 mt-3 text-[14px] leading-7">{item.text}</p>
               <span class="text-navy-800 mt-6 inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.12em] uppercase">
                 {t('home.guide.cta' as UiKey)}

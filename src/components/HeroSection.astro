@@ -58,15 +58,19 @@ const t = useTranslations(lang)
         >
         </div>
         <div class="media-frame shadow-ink-900/20 aspect-[4/5] shadow-2xl">
-          <img
-            src="/images/office-hero.jpeg"
-            alt="Intérieur contemporain d’un espace de travail calme"
-            width="4500"
-            height="3213"
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-          />
+          <picture>
+            <source srcset="/images/office-hero.webp" type="image/webp" />
+            <img
+              src="/images/office-hero.jpeg"
+              alt="Intérieur contemporain d’un espace de travail calme"
+              width="4500"
+              height="3213"
+              loading="eager"
+              fetchpriority="high"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              decoding="async"
+            />
+          </picture>
         </div>
         <figcaption
           class="text-ink-500 mt-3 flex items-center justify-between text-[11px] tracking-[0.16em] uppercase"

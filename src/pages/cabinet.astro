@@ -19,12 +19,6 @@ const values = [0, 1, 2, 3].map((i) => ({
   title: t(`cabinet.values.${i}.title` as any),
   text: t(`cabinet.values.${i}.text` as any),
 }))
-
-const timeline = [0, 1, 2, 3].map((i) => ({
-  date: t(`cabinet.timeline.${i}.date` as any),
-  title: t(`cabinet.timeline.${i}.title` as any),
-  text: t(`cabinet.timeline.${i}.text` as any),
-}))
 ---
 
 <PageLayout
@@ -53,31 +47,6 @@ const timeline = [0, 1, 2, 3].map((i) => ({
           <p class="text-navy-600 mt-4 text-[15px] leading-relaxed whitespace-pre-line">
             {t('cabinet.bio.text')}
           </p>
-        </section>
-      </Reveal>
-
-      <Reveal client:visible delay={0.05}>
-        <section>
-          <h2 class="text-navy-700 text-2xl">{t('cabinet.timeline.title')}</h2>
-          <ol class="border-gold-200 mt-8 space-y-8 border-l pl-6">
-            {
-              timeline.map((item) => (
-                <li class="relative">
-                  <span
-                    class="bg-gold-400 absolute top-1 -left-7 h-3 w-3 rounded-full border-2 border-white"
-                    aria-hidden="true"
-                  />
-                  <p class="text-gold-600 text-xs font-medium tracking-wide">
-                    {item.date}
-                  </p>
-                  <h3 class="text-navy-700 mt-1 text-lg">{item.title}</h3>
-                  <p class="text-navy-600 mt-2 text-[14px] leading-relaxed">
-                    {item.text}
-                  </p>
-                </li>
-              ))
-            }
-          </ol>
         </section>
       </Reveal>
 

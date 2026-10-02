@@ -8,7 +8,7 @@ import { getLangFromUrl, useTranslations } from '../../i18n/utils'
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 
-const toConfirm = '[À confirmer]'
+const toConfirm = 'Sur demande'
 
 const consultations = [0, 1, 2, 3].map((i) => ({
   title: t(`home.consult.${i}.title` as UiKey),

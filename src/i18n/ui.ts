@@ -34,8 +34,8 @@ export const ui = {
 
     // ─── Footer ───────────────────────────────────────────────────────────
     'footer.tagline': 'Le droit qui vous ressemble',
-    'footer.address': 'Adresse professionnelle : [À COMPLÉTER]',
-    'footer.phone': 'Téléphone : [À COMPLÉTER]',
+    'footer.address': 'Adresse professionnelle : sur demande',
+    'footer.phone': 'Téléphone : sur demande',
     'footer.email': 'diane@d2a-avocat.fr',
     'footer.legal': 'Mentions légales',
     'footer.privacy': 'Politique de confidentialité',
@@ -128,7 +128,7 @@ export const ui = {
       'Un premier échange pour clarifier votre besoin et la suite à donner.',
     'home.consult.1.title': 'Consultation vidéo',
     'home.consult.1.format': 'Visioconférence',
-    'home.consult.1.price': '[À confirmer]',
+    'home.consult.1.price': 'Sur demande',
     'home.consult.1.note': 'Un entretien sécurisé, où que vous soyez.',
     'home.consult.2.title': 'Consultation écrite',
     'home.consult.2.format': 'Réponse écrite sous 48–72 h',
@@ -137,7 +137,7 @@ export const ui = {
       'Une analyse écrite de votre situation, idéale pour les questions précises.',
     'home.consult.3.title': 'Consultation présentielle',
     'home.consult.3.format': 'Sur site',
-    'home.consult.3.price': '[À confirmer]',
+    'home.consult.3.price': 'Sur demande',
     'home.consult.3.note':
       'Un rendez-vous au cabinet pour les dossiers qui méritent un échange direct.',
     'home.consult.disclaimer':
@@ -168,23 +168,24 @@ export const ui = {
     'cabinet.photo.pending': 'Portrait de Maître Diane à venir',
     'cabinet.bio.title': 'Maître Diane',
     'cabinet.bio.text':
-      '[À COMPLÉTER] Bio et parcours de Maître Diane. En attendant, voici l’essentiel : elle dirige D2A Avocat, a fait du conseil simple et exigeant sa signature, et accompagne ses clients en France comme à l’international.',
+      'Maître Diane dirige D2A Avocat avec une ambition simple : rendre le droit plus clair, plus humain et plus utile dans les moments où les décisions comptent.',
     'cabinet.timeline.title': 'Parcours & formation',
     'cabinet.timeline.0.date': '[Année]',
     'cabinet.timeline.0.title': 'Formation en droit',
-    'cabinet.timeline.0.text': 'Diplôme en droit et spécialisation. [À COMPLÉTER]',
+    'cabinet.timeline.0.text':
+      'Diplôme en droit et spécialisation. Information to be finalised before publication.',
     'cabinet.timeline.1.date': '[Année]',
     'cabinet.timeline.1.title': 'Prestation de serment',
     'cabinet.timeline.1.text':
-      'Inscription et prestation de serment au barreau. [À COMPLÉTER]',
+      'Inscription et prestation de serment au barreau. Information to be finalised before publication.',
     'cabinet.timeline.2.date': '[Année]',
     'cabinet.timeline.2.title': 'Fondation de D2A Avocat',
     'cabinet.timeline.2.text':
-      'Création d’un cabinet généraliste et premium. [À COMPLÉTER]',
+      'Création d’un cabinet généraliste et premium. Information to be finalised before publication.',
     'cabinet.timeline.3.date': '[Année]',
     'cabinet.timeline.3.title': 'Partenaire au Bénin',
     'cabinet.timeline.3.text':
-      'Partenariat avec SCP AD2A pour les dossiers ouest-africains. [À COMPLÉTER]',
+      'Partenariat avec SCP AD2A pour les dossiers ouest-africains. Information to be finalised before publication.',
 
     'cabinet.values.title': 'Ce que vous pouvez attendre de nous',
     'cabinet.values.text': 'Quatre engagements simples, tenus sur chaque dossier.',
@@ -400,7 +401,7 @@ export const ui = {
       'Une facturation au temps passé, selon des taux convenus à l’avance et actualisée régulièrement en cours de dossier.',
     'honor.modes.2.title': 'Au résultat',
     'honor.modes.2.text':
-      'Dans les seuls cas autorisés par les règles professionnelles, des honoraires peuvent être liés au résultat. [À CONFIRMER]',
+      'Dans les seuls cas autorisés par les règles professionnelles, des honoraires peuvent être liés au résultat. Selon le cadre applicable.',
     'honor.grid.title': 'Les consultations',
     'honor.grid.text': 'Quatre formats, un même niveau d’exigence.',
     'honor.grid.disclaimer':
@@ -410,7 +411,7 @@ export const ui = {
       'Le règlement s’effectue par virement bancaire, une fois la convention d’honoraires acceptée. Le RIB complet est transmis par email — aucun paiement en ligne.',
     'honor.aj.title': 'Aide juridictionnelle',
     'honor.aj.text':
-      'Le cabinet se réserve la possibilité de traiter des dossiers au titre de l’aide juridictionnelle, selon les conditions de recevabilité. [À COMPLÉTER]',
+      'Le cabinet se réserve la possibilité de traiter des dossiers au titre de l’aide juridictionnelle, selon les conditions de recevabilité. Information to be finalised before publication.',
     'honor.cta.title': 'Besoin d’une estimation ?',
     'honor.cta.text':
       'Décrivez votre situation : nous revenons vers vous sous 48 heures ouvrées avec une orientation claire.',
@@ -478,9 +479,9 @@ export const ui = {
     'contact.direct.text':
       'Envoyez-nous un e-mail avec une présentation courte de votre situation.',
     'contact.coords.title': 'Coordonnées',
-    'contact.coords.address': 'Adresse professionnelle : [À COMPLÉTER]',
+    'contact.coords.address': 'Adresse professionnelle : sur demande',
     'contact.coords.email': 'diane@d2a-avocat.fr',
-    'contact.coords.phone': 'Téléphone : [À COMPLÉTER]',
+    'contact.coords.phone': 'Téléphone : sur demande',
     'contact.coords.hours': 'Réponse sous 48 heures ouvrées',
     'contact.benin.title': 'Bureau partenaire au Bénin',
     'contact.benin.text':
@@ -495,15 +496,16 @@ export const ui = {
       'Éditeur, hébergeur, barreau, RPVA et assurance RC Pro. Les informations réglementaires manquantes sont signalées.',
     'legal.s.0.title': 'Éditeur du site',
     'legal.s.0.body':
-      'Le site d2a-avocat.fr est édité par D2A Avocat, cabinet d’avocat.\nForme juridique : [À COMPLÉTER]\nAdresse professionnelle : [À COMPLÉTER]\nE-mail : diane@d2a-avocat.fr',
+      'Le site d2a-avocat.fr est édité par D2A Avocat, cabinet d’avocat.\nForme juridique : Information to be finalised before publication.\nAdresse professionnelle : sur demande\nE-mail : diane@d2a-avocat.fr',
     'legal.s.1.title': 'Directeur de la publication',
-    'legal.s.1.body': 'Directeur de la publication : [À COMPLÉTER]',
+    'legal.s.1.body':
+      'Directeur de la publication : Information to be finalised before publication.',
     'legal.s.2.title': 'Hébergeur',
     'legal.s.2.body':
       'Le site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis.\nLe site est déployé automatiquement depuis le dépôt Git du projet.',
     'legal.s.3.title': 'Avocat',
     'legal.s.3.body':
-      'D2A Avocat est un cabinet d’avocat inscrit au barreau de [À COMPLÉTER].\nNuméro RPVA : [À COMPLÉTER]\nAssurance responsabilité civile professionnelle : [À COMPLÉTER]\nL’avocat exerce sa profession dans le respect du règlement intérieur national (RIN) du barreau.',
+      'D2A Avocat est un cabinet d’avocat inscrit au barreau de Information to be finalised before publication..\nNuméro RPVA : Information to be finalised before publication.\nAssurance responsabilité civile professionnelle : Information to be finalised before publication.\nL’avocat exerce sa profession dans le respect du règlement intérieur national (RIN) du barreau.',
     'legal.s.4.title': 'Propriété intellectuelle',
     'legal.s.4.body':
       'L’ensemble des contenus de ce site (textes, structure, identité visuelle) est protégé par le droit de la propriété intellectuelle. Toute reproduction sans autorisation préalable est interdite.',
@@ -568,8 +570,8 @@ export const ui = {
 
     // ─── Footer ───────────────────────────────────────────────────────────
     'footer.tagline': 'The law that feels like you',
-    'footer.address': 'Professional address: [À COMPLÉTER]',
-    'footer.phone': 'Phone: [À COMPLÉTER]',
+    'footer.address': 'Professional address: available on request',
+    'footer.phone': 'Phone: available on request',
     'footer.email': 'diane@d2a-avocat.fr',
     'footer.legal': 'Legal notice',
     'footer.privacy': 'Privacy policy',
@@ -661,7 +663,7 @@ export const ui = {
       'A first conversation to clarify your needs and the next steps.',
     'home.consult.1.title': 'Video consultation',
     'home.consult.1.format': 'Video call',
-    'home.consult.1.price': '[À confirmer]',
+    'home.consult.1.price': 'Sur demande',
     'home.consult.1.note': 'A secure meeting, wherever you are.',
     'home.consult.2.title': 'Written consultation',
     'home.consult.2.format': 'Written answer within 48–72 h',
@@ -670,7 +672,7 @@ export const ui = {
       'A written analysis of your situation, ideal for precise questions.',
     'home.consult.3.title': 'In-person consultation',
     'home.consult.3.format': 'At the office',
-    'home.consult.3.price': '[À confirmer]',
+    'home.consult.3.price': 'Sur demande',
     'home.consult.3.note':
       'An office meeting for matters that deserve a direct conversation.',
     'home.consult.disclaimer':
@@ -698,22 +700,24 @@ export const ui = {
     'cabinet.photo.pending': 'Maître Diane’s portrait coming soon',
     'cabinet.bio.title': 'Maître Diane',
     'cabinet.bio.text':
-      '[À COMPLÉTER] Biography and background of Maître Diane. In the meantime, the essentials: she leads D2A Avocat, makes clear and demanding advice her signature, and supports clients in France and internationally.',
+      'Maître Diane leads D2A Avocat with a simple ambition: to make the law clearer, more human and more useful when decisions matter.',
     'cabinet.timeline.title': 'Background & education',
     'cabinet.timeline.0.date': '[Year]',
     'cabinet.timeline.0.title': 'Law degree',
-    'cabinet.timeline.0.text': 'Law degree and specialisation. [À COMPLÉTER]',
+    'cabinet.timeline.0.text':
+      'Law degree and specialisation. Information to be finalised before publication.',
     'cabinet.timeline.1.date': '[Year]',
     'cabinet.timeline.1.title': 'Called to the bar',
     'cabinet.timeline.1.text':
-      'Admission and oath before the bar association. [À COMPLÉTER]',
+      'Admission and oath before the bar association. Information to be finalised before publication.',
     'cabinet.timeline.2.date': '[Year]',
     'cabinet.timeline.2.title': 'Founding of D2A Avocat',
-    'cabinet.timeline.2.text': 'Creation of a general, premium practice. [À COMPLÉTER]',
+    'cabinet.timeline.2.text':
+      'Creation of a general, premium practice. Information to be finalised before publication.',
     'cabinet.timeline.3.date': '[Year]',
     'cabinet.timeline.3.title': 'Partner in Benin',
     'cabinet.timeline.3.text':
-      'Partnership with SCP AD2A for West African matters. [À COMPLÉTER]',
+      'Partnership with SCP AD2A for West African matters. Information to be finalised before publication.',
 
     'cabinet.values.title': 'What you can expect from us',
     'cabinet.values.text': 'Four simple commitments, kept on every case.',
@@ -919,7 +923,7 @@ export const ui = {
       'Billing by time spent, at rates agreed in advance and updated regularly during the matter.',
     'honor.modes.2.title': 'Success-based',
     'honor.modes.2.text':
-      'Only where professional rules allow it, fees may be linked to the outcome. [À CONFIRMER]',
+      'Only where professional rules allow it, fees may be linked to the outcome. Selon le cadre applicable.',
     'honor.grid.title': 'Consultations',
     'honor.grid.text': 'Four formats, one standard of exactingness.',
     'honor.grid.disclaimer':
@@ -929,7 +933,7 @@ export const ui = {
       'Payment is made by bank transfer once the fee agreement is accepted. The full bank details are sent by email — no online payment.',
     'honor.aj.title': 'Legal aid',
     'honor.aj.text':
-      'The firm may handle matters under the legal aid scheme, subject to eligibility conditions. [À COMPLÉTER]',
+      'The firm may handle matters under the legal aid scheme, subject to eligibility conditions. Information to be finalised before publication.',
     'honor.cta.title': 'Need an estimate?',
     'honor.cta.text':
       'Describe your situation: we get back to you within 48 business hours with clear guidance.',
@@ -996,9 +1000,9 @@ export const ui = {
     'contact.direct.text':
       'Send us an e-mail with a short description of your situation.',
     'contact.coords.title': 'Contact details',
-    'contact.coords.address': 'Professional address: [À COMPLÉTER]',
+    'contact.coords.address': 'Professional address: available on request',
     'contact.coords.email': 'diane@d2a-avocat.fr',
-    'contact.coords.phone': 'Phone: [À COMPLÉTER]',
+    'contact.coords.phone': 'Phone: available on request',
     'contact.coords.hours': 'Reply within 48 business hours',
     'contact.benin.title': 'Partner office in Benin',
     'contact.benin.text':
@@ -1013,15 +1017,16 @@ export const ui = {
       'Publisher, host, bar association, RPVA and professional indemnity insurance. Missing regulatory details are flagged.',
     'legal.s.0.title': 'Publisher of the site',
     'legal.s.0.body':
-      'The website d2a-avocat.fr is published by D2A Avocat, a law firm.\nLegal form: [À COMPLÉTER]\nProfessional address: [À COMPLÉTER]\nE-mail: diane@d2a-avocat.fr',
+      'The website d2a-avocat.fr is published by D2A Avocat, a law firm.\nLegal form: Information to be finalised before publication.\nProfessional address: available on request\nE-mail: diane@d2a-avocat.fr',
     'legal.s.1.title': 'Publication director',
-    'legal.s.1.body': 'Publication director: [À COMPLÉTER]',
+    'legal.s.1.body':
+      'Publication director: Information to be finalised before publication.',
     'legal.s.2.title': 'Host',
     'legal.s.2.body':
       'The site is hosted by Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA.\nThe site is deployed automatically from the project’s Git repository.',
     'legal.s.3.title': 'Lawyer',
     'legal.s.3.body':
-      'D2A Avocat is a law firm admitted to the bar association of [À COMPLÉTER].\nRPVA number: [À COMPLÉTER]\nProfessional indemnity insurance: [À COMPLÉTER]\nThe lawyer practises in accordance with the national internal rules (RIN) of the French bar.',
+      'D2A Avocat is a law firm admitted to the bar association of Information to be finalised before publication..\nRPVA number: Information to be finalised before publication.\nProfessional indemnity insurance: Information to be finalised before publication.\nThe lawyer practises in accordance with the national internal rules (RIN) of the French bar.',
     'legal.s.4.title': 'Intellectual property',
     'legal.s.4.body':
       'All content of this site (texts, structure, visual identity) is protected by intellectual property law. Any reproduction without prior authorisation is prohibited.',

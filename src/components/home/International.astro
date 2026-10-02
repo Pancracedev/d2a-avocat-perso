@@ -36,14 +36,18 @@ const countries = [0, 1, 2].map((i) => ({
     <Reveal client:visible delay={0.08}>
       <div>
         <div class="media-frame aspect-[16/9] border border-white/10">
-          <img
-            src="/images/office-detail.jpeg"
-            alt="Salle de réunion contemporaine évoquant un espace de conseil"
-            width="5900"
-            height="3939"
-            loading="lazy"
-            decoding="async"
-          />
+          <picture>
+            <source srcset="/images/office-detail.webp" type="image/webp" />
+            <img
+              src="/images/office-detail.jpeg"
+              alt="Salle de réunion contemporaine évoquant un espace de conseil"
+              width="5900"
+              height="3939"
+              loading="lazy"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              decoding="async"
+            />
+          </picture>
         </div>
         <ul
           class="border-navy-700 mt-6 grid gap-px overflow-hidden rounded-sm border sm:grid-cols-3"
