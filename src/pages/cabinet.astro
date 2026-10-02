@@ -37,7 +37,7 @@ const timeline = [0, 1, 2, 3].map((i) => ({
   <div class="grid gap-12 lg:grid-cols-[2fr_1fr]">
     <div class="space-y-16">
       <Reveal client:visible>
-        <section class="card p-8 lg:p-10">
+        <section class="border-ink-200/90 border-y py-10 lg:py-12">
           <blockquote class="border-gold-300 relative border-l-2 pl-6">
             <span
               class="text-gold-300 pointer-events-none absolute -top-4 -left-1 font-serif text-5xl leading-none select-none"
@@ -108,13 +108,16 @@ const timeline = [0, 1, 2, 3].map((i) => ({
 
     <aside class="space-y-6">
       <Reveal client:visible>
-        <div class="card overflow-hidden p-6">
+        <div class="border-ink-200/90 border-t pt-6">
           <figure>
             <div class="media-frame aspect-[4/5] shadow-inner">
               <img
                 src="/images/office-light.jpg"
                 alt="Espace de travail lumineux et contemporain"
+                width="3000"
+                height="4500"
                 loading="lazy"
+                decoding="async"
               />
             </div>
             <figcaption class="text-navy-500 mt-3 text-[12px]">
@@ -125,7 +128,7 @@ const timeline = [0, 1, 2, 3].map((i) => ({
       </Reveal>
 
       <Reveal client:visible delay={0.05}>
-        <div class="card p-6">
+        <div class="border-ink-200/90 border-t pt-6">
           <h3 class="text-navy-700 text-lg">{t('cabinet.benin.title')}</h3>
           <p class="text-navy-600 mt-2 text-[14px] leading-relaxed">
             {t('cabinet.benin.text')}

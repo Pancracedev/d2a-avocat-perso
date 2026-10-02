@@ -15,13 +15,20 @@ const countries = [0, 1, 2].map((i) => ({
 }))
 ---
 
-<section class="relative overflow-hidden bg-navy-800 text-white">
-  <div class="wrap relative grid gap-12 py-24 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:gap-20 lg:py-32">
+<section class="bg-navy-800 relative overflow-hidden text-white">
+  <div
+    class="wrap relative grid gap-12 py-24 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:gap-20 lg:py-32"
+  >
     <Reveal client:visible>
       <div>
-        <SectionHeading eyebrow={t('home.international.eyebrow')} title={t('home.international.title')} text={t('home.international.text')} light />
-        <div class="mt-8 flex items-center gap-3 text-[13px] text-navy-200">
-          <span class="h-px w-12 bg-gold-400"></span>
+        <SectionHeading
+          eyebrow={t('home.international.eyebrow')}
+          title={t('home.international.title')}
+          text={t('home.international.text')}
+          light
+        />
+        <div class="text-navy-200 mt-8 flex items-center gap-3 text-[13px]">
+          <span class="bg-gold-400 h-px w-12"></span>
           <span>Une présence coordonnée</span>
         </div>
       </div>
@@ -29,24 +36,53 @@ const countries = [0, 1, 2].map((i) => ({
     <Reveal client:visible delay={0.08}>
       <div>
         <div class="media-frame aspect-[16/9] border border-white/10">
-          <img src="/images/office-detail.jpeg" alt="Salle de réunion contemporaine évoquant un espace de conseil" loading="lazy" />
+          <img
+            src="/images/office-detail.jpeg"
+            alt="Salle de réunion contemporaine évoquant un espace de conseil"
+            width="5900"
+            height="3939"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
-        <ul class="mt-6 grid gap-px overflow-hidden rounded-sm border border-navy-700 sm:grid-cols-3">
-          {countries.map((country) => (
-            <li class="bg-navy-900/70 p-5">
-              <p class="text-[11px] font-semibold tracking-[0.2em] text-gold-400">{country.code}</p>
-              <h3 class="mt-2 text-xl text-white">{country.name}</h3>
-              <p class="mt-2 text-[13px] leading-relaxed text-navy-200">{country.text}</p>
-            </li>
-          ))}
+        <ul
+          class="border-navy-700 mt-6 grid gap-px overflow-hidden rounded-sm border sm:grid-cols-3"
+        >
+          {
+            countries.map((country) => (
+              <li class="bg-navy-900/70 p-5">
+                <p class="text-gold-400 text-[11px] font-semibold tracking-[0.2em]">
+                  {country.code}
+                </p>
+                <h3 class="mt-2 text-xl text-white">{country.name}</h3>
+                <p class="text-navy-200 mt-2 text-[13px] leading-relaxed">
+                  {country.text}
+                </p>
+              </li>
+            ))
+          }
         </ul>
-        <div class="mt-6 flex flex-col gap-4 border-t border-navy-700 pt-5 sm:flex-row sm:items-center sm:justify-between">
+        <div
+          class="border-navy-700 mt-6 flex flex-col gap-4 border-t pt-5 sm:flex-row sm:items-center sm:justify-between"
+        >
           <div>
-            <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-400">{t('home.intl.partner.title')}</p>
-            <p class="mt-2 max-w-xl text-[13px] text-navy-200">{t('home.intl.partner.text')}</p>
+            <p
+              class="text-gold-400 text-[11px] font-semibold tracking-[0.18em] uppercase"
+            >
+              {t('home.intl.partner.title')}
+            </p>
+            <p class="text-navy-200 mt-2 max-w-xl text-[13px]">
+              {t('home.intl.partner.text')}
+            </p>
           </div>
-          <a href={site.partner.url} target="_blank" rel="noopener noreferrer" class="inline-flex shrink-0 items-center gap-2 text-[13px] font-medium text-white underline decoration-gold-400 underline-offset-4 hover:text-gold-200">
-            {t('home.intl.partner.link')} <Icon name="arrow-right" size={16} class="text-gold-400" />
+          <a
+            href={site.partner.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="decoration-gold-400 hover:text-gold-200 inline-flex shrink-0 items-center gap-2 text-[13px] font-medium text-white underline underline-offset-4"
+          >
+            {t('home.intl.partner.link')}
+            <Icon name="arrow-right" size={16} class="text-gold-400" />
           </a>
         </div>
       </div>

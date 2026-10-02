@@ -45,6 +45,7 @@ const formAction = endpoint ?? mailto
           enctype={endpoint ? undefined : 'text/plain'}
           data-contact-form
           data-endpoint={endpoint ?? ''}
+          data-email={site.email}
           data-labels={JSON.stringify({
             sending: t('contact.form.sending'),
             success: t('contact.form.success'),
@@ -233,7 +234,7 @@ const formAction = endpoint ?? mailto
 
   <script is:inline>
     const form = document.querySelector('[data-contact-form]')
-    if (form && form.dataset.endpoint) {
+    if (form) {
       const status = document.getElementById('form-status')
       const submit = form.querySelector('button[type="submit"]')
       let labels = {}
@@ -248,6 +249,16 @@ const formAction = endpoint ?? mailto
         sending: 'mt-1 text-[13px] text-navy-500',
       }
       form.addEventListener('submit', async (event) => {
+        if (!form.dataset.endpoint) {
+          event.preventDefault()
+          const data = new FormData(form)
+          const subject = encodeURIComponent('Demande de contact – D2A Avocat')
+          const body = encodeURIComponent(
+            `Nom : ${data.get('name')}\nE-mail : ${data.get('email')}\nTéléphone : ${data.get('phone') || ''}\nDomaine : ${data.get('domain')}\n\nMessage :\n${data.get('message')}`,
+          )
+          window.location.href = `mailto:${form.dataset.email}?subject=${subject}&body=${body}`
+          return
+        }
         event.preventDefault()
         if (submit) submit.disabled = true
         if (status) {

@@ -51,7 +51,7 @@ const consult = [0, 1, 2, 3].map((i) => ({
       <div class="mt-6 grid gap-5 md:grid-cols-3">
         {
           modes.map((mode) => (
-            <article class="card flex flex-col p-6">
+            <article class="editorial-card flex flex-col">
               <h3 class="text-navy-700 text-lg">{mode.title}</h3>
               <p class="text-navy-600 mt-2 grow text-[14px] leading-relaxed">
                 {mode.text}
@@ -86,7 +86,7 @@ const consult = [0, 1, 2, 3].map((i) => ({
 
   <Reveal client:visible delay={0.15}>
     <section class="mt-14 grid gap-6 md:grid-cols-2">
-      <article class="card p-6">
+      <article class="editorial-card">
         <h2 class="text-navy-700 text-xl">{t('honor.payment.title')}</h2>
         <p class="text-navy-600 mt-3 text-[14px] leading-relaxed">
           {t('honor.payment.text')}

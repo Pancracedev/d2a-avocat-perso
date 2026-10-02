@@ -19,7 +19,7 @@ const formattedDate = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-GB',
 }).format(date)
 ---
 
-<a href={href} class="card card-hover group flex flex-col overflow-hidden p-7">
+<a href={href} class="editorial-card group flex flex-col overflow-hidden">
   <div class="flex items-center justify-between gap-3">
     <time class="text-navy-400 text-[12px] font-medium" datetime={date.toISOString()}>
       {formattedDate}

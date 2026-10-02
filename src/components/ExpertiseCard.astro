@@ -4,23 +4,43 @@ import type { Lang } from '../i18n/ui'
 import { localizePath } from '../i18n/utils'
 
 type IconName = 'briefcase' | 'globe' | 'home'
-type Props = { lang: Lang; icon: IconName; index: string; title: string; text: string; href: string; ctaLabel: string }
+type Props = {
+  lang: Lang
+  icon: IconName
+  index: string
+  title: string
+  text: string
+  href: string
+  ctaLabel: string
+}
 const { lang, icon, index, title, text, href, ctaLabel } = Astro.props
 ---
 
-<a href={localizePath(lang, href)} class="card card-hover group flex min-h-[300px] flex-col overflow-hidden p-7 lg:p-8">
-  <div class="flex items-start justify-between">
-    <span class="font-serif text-6xl font-light leading-none text-ink-100 transition-colors duration-300 group-hover:text-gold-100" aria-hidden="true">{index}</span>
-    <span class="rounded-full border border-ink-200 bg-ink-50 p-3 text-navy-700 transition-colors duration-300 group-hover:border-gold-200 group-hover:bg-gold-50 group-hover:text-gold-600">
+<a
+  href={localizePath(lang, href)}
+  class="editorial-card group flex min-h-[260px] flex-col overflow-hidden"
+>
+  <div class="flex items-start justify-between gap-6">
+    <span
+      class="section-number group-hover:text-gold-200 transition-colors duration-300"
+      aria-hidden="true">{index}</span
+    >
+    <span class="text-navy-600 group-hover:text-gold-600 transition-colors duration-300">
       <Icon name={icon} size={22} />
     </span>
   </div>
-  <div class="mt-auto pt-10">
+  <div class="mt-auto pt-8">
     <h3 class="text-2xl">{title}</h3>
-    <p class="mt-3 text-[14px] leading-7 text-ink-600">{text}</p>
-    <div class="mt-7 inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.12em] text-ink-800">
+    <p class="text-ink-600 mt-3 text-[14px] leading-7">{text}</p>
+    <div
+      class="text-ink-800 mt-7 inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.12em] uppercase"
+    >
       {ctaLabel}
-      <Icon name="arrow-right" size={16} class="text-gold-500 transition-transform duration-300 group-hover:translate-x-1" />
+      <Icon
+        name="arrow-right"
+        size={16}
+        class="text-gold-500 transition-transform duration-300 group-hover:translate-x-1"
+      />
     </div>
   </div>
 </a>

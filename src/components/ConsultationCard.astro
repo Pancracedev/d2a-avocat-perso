@@ -12,8 +12,8 @@ const { title, format, price, note, isHighlighted = false } = Astro.props
 
 <div
   class:list={[
-    'card group relative flex flex-col p-6',
-    isHighlighted && 'border-gold-300 bg-gold-50/40',
+    'editorial-card group relative flex flex-col',
+    isHighlighted && 'border-gold-400 bg-gold-50/40 px-5',
   ]}
 >
   {
