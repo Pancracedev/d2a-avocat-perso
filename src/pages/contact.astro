@@ -39,6 +39,26 @@ const formAction = endpoint ?? mailto
         <p class="text-navy-600 mt-3 text-[14px] leading-relaxed">
           {t('contact.form.intro')}
         </p>
+        <div class="border-gold-200 bg-gold-50/60 mt-5 border-l-2 px-4 py-4">
+          <h3 class="text-navy-700 text-[14px] font-medium">
+            {t('contact.before.title')}
+          </h3>
+          <p class="text-navy-600 mt-1 text-[13px] leading-relaxed">
+            {t('contact.before.text')}
+          </p>
+          <ul class="text-navy-600 mt-3 space-y-1 text-[12px] leading-relaxed">
+            {
+              [0, 1, 2].map((i) => (
+                <li class="flex gap-2">
+                  <span class="text-gold-600" aria-hidden="true">
+                    —
+                  </span>
+                  {t(`contact.before.${i}` as any)}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
         <form
           method="post"
           action={formAction}

@@ -2,7 +2,13 @@
 import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
 import { languages } from '../i18n/ui'
-import { getAlternatePath, getLangFromUrl, useTranslations } from '../i18n/utils'
+import {
+  getAlternatePath,
+  getLangFromUrl,
+  localizePath,
+  routes,
+  useTranslations,
+} from '../i18n/utils'
 import '../styles/global.css'
 
 type Props = {
@@ -82,6 +88,13 @@ const orgJsonLd = {
     <main class="flex-1">
       <slot />
     </main>
+    <a
+      href={localizePath(lang, routes.contact)}
+      class="mobile-action bg-navy-800 shadow-navy-900/20 text-white shadow-lg md:hidden"
+    >
+      {t('nav.book')}
+      <span aria-hidden="true">→</span>
+    </a>
     <Footer />
   </body>
 </html>

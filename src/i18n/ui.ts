@@ -28,7 +28,7 @@ export const ui = {
     // ─── Héro ─────────────────────────────────────────────────────────────
     'hero.title': 'Le droit qui vous ressemble',
     'hero.subtitle':
-      'Un accompagnement juridique clair, humain et exigeant — en droit des affaires, des étrangers et de la famille. En France, au Bénin et en Côte d’Ivoire.',
+      'Un accompagnement juridique clair pour vos affaires, votre parcours migratoire et vos enjeux familiaux entre la France et l’Afrique de l’Ouest.',
     'hero.ctaPrimary': 'Prendre rendez-vous',
     'hero.ctaSecondary': 'Nos expertises',
 
@@ -62,6 +62,20 @@ export const ui = {
     'home.highlight.2.text':
       'Un retour sous 48 heures ouvrées après votre premier message.',
 
+    'home.guide.eyebrow': 'Vous êtes au bon endroit si…',
+    'home.guide.title': 'Un premier repère pour votre situation',
+    'home.guide.text':
+      'Choisissez le sujet qui se rapproche le plus de votre besoin. Nous préciserons ensemble la suite lors du premier échange.',
+    'home.guide.0.title': 'Vous dirigez une entreprise',
+    'home.guide.0.text':
+      'Vous créez, développez ou sécurisez une activité et cherchez un conseil juridique qui reste lisible et opérationnel.',
+    'home.guide.1.title': 'Votre parcours concerne la France',
+    'home.guide.1.text':
+      'Vous avez une question de séjour, de nationalité, de regroupement familial ou de recours administratif.',
+    'home.guide.2.title': 'Votre famille traverse une étape',
+    'home.guide.2.text':
+      'Vous avez besoin d’un cadre clair pour une séparation, les enfants, une pension ou une situation internationale.',
+    'home.guide.cta': 'Voir ce domaine',
     'home.expertises.eyebrow': 'Expertises',
     'home.expertises.title': 'Trois champs d’action complémentaires',
     'home.expertises.text':
@@ -171,7 +185,7 @@ export const ui = {
     'cabinet.timeline.3.text':
       'Partenariat avec SCP AD2A pour les dossiers ouest-africains. [À COMPLÉTER]',
 
-    'cabinet.values.title': 'Notre approche',
+    'cabinet.values.title': 'Ce que vous pouvez attendre de nous',
     'cabinet.values.text': 'Quatre engagements simples, tenus sur chaque dossier.',
     'cabinet.values.0.title': 'Clarté',
     'cabinet.values.0.text':
@@ -414,6 +428,8 @@ export const ui = {
     'news.filter.family': 'Famille',
     'news.empty': 'Aucune publication pour ce filtre pour le moment.',
     'news.read': 'Lire l’article',
+    'news.article.disclaimer':
+      'Cet article est fourni à titre informatif et ne remplace pas l’analyse personnalisée de votre situation.',
     'news.back': 'Toutes les actualités',
     'news.cta.title': 'Une question qui mérite un éclairage ?',
     'news.cta.text':
@@ -428,7 +444,13 @@ export const ui = {
       'Choisissez un appel découverte, une consultation, ou laissez-nous un message. Nous revenons vers vous rapidement.',
     'contact.form.title': 'Écrivez-nous',
     'contact.form.intro':
-      'Remplissez le formulaire : nous revenons vers vous sous 48 heures ouvrées.',
+      'Présentez votre situation en quelques lignes. Nous revenons vers vous sous 48 heures ouvrées.',
+    'contact.before.title': 'Avant de nous écrire',
+    'contact.before.text':
+      'Pour nous aider à vous orienter rapidement, indiquez le domaine concerné, les dates importantes et la question qui vous amène.',
+    'contact.before.0': 'Votre situation en quelques lignes',
+    'contact.before.1': 'Les échéances ou urgences à connaître',
+    'contact.before.2': 'Les pièces déjà disponibles, sans donnée confidentielle inutile',
     'contact.form.name': 'Nom complet',
     'contact.form.email': 'Adresse e-mail',
     'contact.form.phone': 'Téléphone (optionnel)',
@@ -537,7 +559,7 @@ export const ui = {
     // ─── Héro ─────────────────────────────────────────────────────────────
     'hero.title': 'The law that feels like you',
     'hero.subtitle':
-      'Clear, human and exacting legal support — in business, immigration and family law. In France, Benin and Côte d’Ivoire.',
+      'Clear legal support for your business, immigration journey and family matters between France and West Africa.',
     'hero.ctaPrimary': 'Book an appointment',
     'hero.ctaSecondary': 'Our practice areas',
 
@@ -570,6 +592,20 @@ export const ui = {
     'home.highlight.2.title': '48 h',
     'home.highlight.2.text': 'A reply within 48 business hours after your first message.',
 
+    'home.guide.eyebrow': 'You are in the right place if…',
+    'home.guide.title': 'A first point of reference for your situation',
+    'home.guide.text':
+      'Choose the topic closest to your need. We will clarify the next step together during the first conversation.',
+    'home.guide.0.title': 'You run a business',
+    'home.guide.0.text':
+      'You are setting up, growing or securing an activity and need legal advice that stays clear and operational.',
+    'home.guide.1.title': 'Your journey involves France',
+    'home.guide.1.text':
+      'You have a question about residence, nationality, family reunification or an administrative appeal.',
+    'home.guide.2.title': 'Your family is facing a turning point',
+    'home.guide.2.text':
+      'You need a clear framework for separation, children, maintenance or an international situation.',
+    'home.guide.cta': 'Explore this area',
     'home.expertises.eyebrow': 'Practice areas',
     'home.expertises.title': 'Three complementary areas',
     'home.expertises.text':
@@ -675,7 +711,7 @@ export const ui = {
     'cabinet.timeline.3.text':
       'Partnership with SCP AD2A for West African matters. [À COMPLÉTER]',
 
-    'cabinet.values.title': 'Our approach',
+    'cabinet.values.title': 'What you can expect from us',
     'cabinet.values.text': 'Four simple commitments, kept on every case.',
     'cabinet.values.0.title': 'Clarity',
     'cabinet.values.0.text': 'Explaining the law without jargon, for informed decisions.',
@@ -908,6 +944,8 @@ export const ui = {
     'news.filter.family': 'Family',
     'news.empty': 'No publication for this filter at the moment.',
     'news.read': 'Read the article',
+    'news.article.disclaimer':
+      'This article is for information only and does not replace a personalised review of your situation.',
     'news.back': 'All insights',
     'news.cta.title': 'A question worth answering?',
     'news.cta.text': 'Articles do not replace personal advice. Contact the firm.',
@@ -921,7 +959,14 @@ export const ui = {
       'Choose a discovery call, a consultation, or leave a message. We will get back to you promptly.',
     'contact.form.title': 'Write to us',
     'contact.form.intro':
-      'Fill in the form: we get back to you within 48 business hours.',
+      'Describe your situation in a few lines. We will get back to you within 48 business hours.',
+    'contact.before.title': 'Before you write',
+    'contact.before.text':
+      'To help us guide you quickly, mention the area concerned, important dates and the question bringing you to us.',
+    'contact.before.0': 'Your situation in a few lines',
+    'contact.before.1': 'Any deadlines or urgent points',
+    'contact.before.2':
+      'Documents already available, without unnecessary confidential data',
     'contact.form.name': 'Full name',
     'contact.form.email': 'E-mail address',
     'contact.form.phone': 'Phone (optional)',

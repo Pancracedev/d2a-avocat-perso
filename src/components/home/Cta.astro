@@ -2,6 +2,7 @@
 import CtaBanner from '../CtaBanner.astro'
 import Reveal from '../Reveal'
 import { getLangFromUrl, routes, useTranslations } from '../../i18n/utils'
+import { site } from '../../config/site'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -16,7 +17,7 @@ const t = useTranslations(lang)
       text={t('home.cta.text')}
       primaryHref={routes.contact}
       primaryLabel={t('home.cta.primary')}
-      secondaryHref={routes.contact}
+      secondaryHref={`mailto:${site.email}`}
       secondaryLabel={t('home.cta.secondary')}
     />
   </Reveal>

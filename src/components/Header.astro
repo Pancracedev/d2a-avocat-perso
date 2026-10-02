@@ -35,7 +35,7 @@ function isActive(href: string) {
       aria-label="D2A Avocat — accueil"
     >
       <span class="brand-mark" aria-hidden="true">D2A</span>
-      <span>D2A <span class="text-navy-500">Avocat</span></span>
+      <span class="text-navy-500">Avocat</span>
     </a>
 
     <nav class="hidden items-center gap-6 lg:flex" aria-label="Principal">
@@ -66,8 +66,8 @@ function isActive(href: string) {
         class="border-navy-200 text-navy-700 cursor-pointer list-none rounded-sm border px-3 py-2 text-[12px] font-medium [&::-webkit-details-marker]:hidden"
         aria-label="Ouvrir le menu"
       >
-        <span class="group-open:hidden">Menu</span>
-        <span class="hidden group-open:inline">Fermer</span>
+        <span class="group-open:hidden">{t('nav.openMenu')}</span>
+        <span class="hidden group-open:inline">{t('nav.closeMenu')}</span>
       </summary>
       <div
         class="border-navy-100 absolute right-0 mt-3 w-64 rounded-sm border bg-white p-4 shadow-lg"

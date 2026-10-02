@@ -20,7 +20,7 @@ const variants = {
 }
 
 const { href, lang, variant = 'primary', className = '' } = Astro.props
-const resolved = localizePath(lang, href)
+const resolved = /^(https?:|mailto:|tel:)/.test(href) ? href : localizePath(lang, href)
 ---
 
 <a
