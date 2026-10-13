@@ -23,3 +23,10 @@
 - Décisions prises : conservation des 144 heures ; projet fil rouge « Boutique Essentielle » ; documents indépendants du site, ajoutés à la demande de l’utilisateur pour permettre leur récupération sur GitHub.
 - Blocages rencontrés : les liens de téléchargement dans la conversation n’étaient pas utilisables pour l’utilisateur.
 - Prochaine étape : permettre à l’utilisateur de récupérer les documents depuis la branche de session sur GitHub.
+
+### Référentiel Black Creative — version concise
+
+- Réduction du référentiel de 18 à 4 pages et suppression des répétitions.
+- Ancien module 3 intégré comme exercice de deux phrases dans M2 ; ses 12 heures sont absorbées dans M2 (36 h). Renumérotation en 11 modules, total inchangé de 144 heures.
+- Projet final présenté uniquement en fin de document, en trois courts paragraphes.
+- PDF, Word, Markdown et notice actualisés ; pagination du PDF, total horaire et emplacement unique du projet vérifiés.

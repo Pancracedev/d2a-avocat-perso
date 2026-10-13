@@ -2,11 +2,11 @@
 
 Formation professionnelle pour débutants : **6 mois, 144 heures encadrées**.
 
-Version révisée 1.0 comprenant les 12 modules, les exercices, les livrables, les évaluations et le nouveau projet fil rouge **« Boutique Essentielle »**, un catalogue avec suivi simplifié des stocks.
+Version concise 2.0 : **4 pages, 11 modules et 144 heures**. Chaque module présente l’objectif, les contenus, la pratique et la validation. L’ancien module de site vitrine est intégré au module 2 sous la forme d’un exercice de deux phrases ; le projet final est présenté uniquement à la fin.
 
 ## Documents
 
-- [Référentiel PDF — 18 pages](referentiel-developpement-web.pdf)
+- [Référentiel PDF — 4 pages](referentiel-developpement-web.pdf)
 - [Version Word modifiable](referentiel-developpement-web.docx)
 - [Version texte consultable directement sur GitHub](referentiel-developpement-web.md)
 
