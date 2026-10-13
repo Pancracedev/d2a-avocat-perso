@@ -16,3 +16,10 @@
 - Décisions prises : les pages EN réutilisent désormais les pages FR via import (source unique de vérité), le contenu restant piloté par l’URL via i18n. Pas d’image stock non vérifiée sur un site d’avocat : emplacements photo propres en attendant les visuels professionnels.
 - Blocages rencontrés : impossible de valider visuellement les images (pas d’entrée image) — les visuels stock ne sont pas intégrés en aveugle.
 - Prochaine étape : intégrer la photo professionnelle de Maître Diane et les informations administratives `[À COMPLÉTER]`, puis brancher l’endpoint du formulaire (`PUBLIC_CONTACT_ENDPOINT`) et configurer Cal.com.
+
+## 2026-10-13 — Dépôt du référentiel Black Creative
+
+- Ce qui a été fait : ajout du référentiel pédagogique révisé en PDF, Word et Markdown dans `docs/formation-black-creative`, avec une notice de téléchargement.
+- Décisions prises : conservation des 144 heures ; projet fil rouge « Boutique Essentielle » ; documents indépendants du site, ajoutés à la demande de l’utilisateur pour permettre leur récupération sur GitHub.
+- Blocages rencontrés : les liens de téléchargement dans la conversation n’étaient pas utilisables pour l’utilisateur.
+- Prochaine étape : permettre à l’utilisateur de récupérer les documents depuis la branche de session sur GitHub.
